@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;600;700;800&family=Work+Sans:wght@300;400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Roboto Slab', serif;
+  --font-body: 'Work Sans', sans-serif;
+
+  /* Palette derived from #0067a4 */
+  --color-primary:      #0067a4;   /* brand blue */
+  --color-primary-hi:   #0089d6;   /* lighter tint — hover states */
+  --color-primary-lo:   #004d7a;   /* deeper shade — pressed / borders */
+
+  --color-ground:       #040e16;   /* near-black, blue-tinted */
+  --color-ground-2:     #071828;   /* card / panel surface */
+  --color-ground-3:     #0b2238;   /* hover surface */
+
+  --color-steel:        #a8c8e0;   /* cool light blue — body text on dark */
+  --color-steel-dim:    #4d7fa0;   /* muted / captions */
+  --color-white:        #eef5fb;   /* headline text */
+
+  --color-rule:         rgba(0,103,164,0.20);   /* hairline borders */
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Work Sans', sans-serif;
+  background-color: #f5f8fb;
+  color: #0a1e32;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #e8f0f8; }
+::-webkit-scrollbar-thumb { background: #0067a4; border-radius: 2px; }

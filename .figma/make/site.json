@@ -1,0 +1,12 @@
+{
+  "title": "LSO Group",
+  "description": "Showcases LSO Group's construction and project management services with a professional landing page highlighting expertise and black-owned ownership.",
+  "language": "en",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
