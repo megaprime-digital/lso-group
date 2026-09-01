@@ -10,16 +10,11 @@ export const company = {
   legalName: "LSO GROUP (Pty) Ltd",
   enterpriseNumber: "2015/184104/07",
   established: "2015",
-  email: "Info@lsoprojects.co.za",
+  email: "admin@lsogroup.co.za",
   phoneDisplay: "+27 71 7740 674",
   phoneHref: "+27717740674",
   website: "lsoprojects.co.za",
-  addressLines: [
-    "8 Kikuyu Road",
-    "Network Space, Sunninghill",
-    "Sandton, 2191",
-    "South Africa",
-  ],
+  addressLines: ["1 Protea Pl", "Sandown, Sandton, 2191", "South Africa"],
   strongerPresence: ["Gauteng", "KwaZulu-Natal", "Mpumalanga", "Free State"],
 }
 

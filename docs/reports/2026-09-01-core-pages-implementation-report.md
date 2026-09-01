@@ -142,13 +142,13 @@ Removed from the public implementation:
 - inactive company-profile downloads;
 - empty top-level page destinations.
 
-Contact details were sourced from LSO's existing first-party contact page:
+The email address and physical address were corrected and confirmed by the authorised LSO owner on 1 September 2026. The phone number remains sourced from LSO's existing first-party contact page:
 
-- `Info@lsoprojects.co.za`
+- `admin@lsogroup.co.za`
 - `+27 71 7740 674`
-- `8 Kikuyu Road, Network Space, Sunninghill, Sandton, 2191`
+- `1 Protea Pl, Sandown, Sandton, 2191`
 
-These should still receive a final owner confirmation before production launch.
+The phone number should still receive final owner confirmation before production launch.
 
 ## Verification completed
 
@@ -176,7 +176,7 @@ Build output at verification time:
 
 ### Business/content decisions
 
-1. Confirm the published phone, email and Sunninghill address with the LSO owner.
+1. Confirm the published phone number with the LSO owner.
 2. Supply verified project records, imagery, outcomes and publication consent before restoring a Projects section/page.
 3. Validate the real project delivery process before publishing delivery-process wording.
 4. Supply evidence for any CIDB, accreditation, certification, transformation, insurance or compliance claim.

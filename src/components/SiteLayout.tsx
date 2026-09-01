@@ -202,7 +202,7 @@ export function SiteFooter() {
           <h2>Contact</h2>
           <a href={`tel:${company.phoneHref}`}>{company.phoneDisplay}</a>
           <a href={`mailto:${company.email}`}>{company.email}</a>
-          <p>Sunninghill, Sandton</p>
+          <p>Sandown, Sandton</p>
           <p>South Africa</p>
         </div>
       </div>
