@@ -132,48 +132,64 @@ export default function HomePage() {
       </section>
 
       <section
-        className="credentials-section"
+        className="compliance-section"
         aria-labelledby="credentials-heading"
       >
-        <div className="container">
-          <div className="credentials-heading">
-            <div>
-              <Eyebrow light>LSO Group at a Glance</Eyebrow>
-              <h2 id="credentials-heading">Our Footprint & Credentials</h2>
-            </div>
+        <div className="container compliance-layout">
+          <div className="compliance-copy">
+            <Eyebrow>Compliance & Credentials</Eyebrow>
+            <h2 id="credentials-heading">Capability You Can Rely On</h2>
             <p>
-              Established business credentials and operating coverage across
-              South Africa.
+              LSO Group's company registration, B-BBEE status, CIDB grading and
+              national operating footprint support procurement and project
+              evaluation across South Africa.
+            </p>
+            <button
+              className="profile-download"
+              type="button"
+              disabled
+              aria-describedby="profile-download-note"
+            >
+              <span aria-hidden="true">↓</span>
+              Download Company Profile
+            </button>
+            <p className="profile-download-note" id="profile-download-note">
+              Company profile PDF — pending approved file upload
             </p>
           </div>
 
-          <dl className="credential-stats">
-            <div>
-              <dt>Established</dt>
-              <dd>{company.established}</dd>
-            </div>
-            <div>
-              <dt>National coverage</dt>
-              <dd>All 9 provinces</dd>
-            </div>
-            <div>
-              <dt>B-BBEE status</dt>
-              <dd>{company.bbbeeLevel}</dd>
-            </div>
-            <div>
-              <dt>CIDB grading</dt>
-              <dd>{company.cidbGrade}</dd>
-            </div>
+          <dl className="compliance-grid">
+            <CredentialCard
+              label="B-BBEE status"
+              value={company.bbbeeLevel}
+              note="Owner confirmed"
+            />
+            <CredentialCard
+              label="CIDB registration"
+              value={company.cidbGrade}
+              note="General Building"
+            />
+            <CredentialCard
+              label="Company registration"
+              value="Registered Entity"
+              note={company.enterpriseNumber}
+            />
+            <CredentialCard
+              label="Established"
+              value={company.established}
+              note="Operating since 2015"
+            />
+            <CredentialCard
+              label="National coverage"
+              value="All 9 Provinces"
+              note="South Africa"
+            />
+            <CredentialCard
+              label="Stronger presence"
+              value="4 Provinces"
+              note={company.strongerPresence.join(" · ")}
+            />
           </dl>
-
-          <div className="presence-row">
-            <p>Stronger presence</p>
-            <div>
-              {company.strongerPresence.map((province) => (
-                <span key={province}>{province}</span>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
@@ -222,5 +238,23 @@ export default function HomePage() {
         </div>
       </section>
     </>
+  )
+}
+
+function CredentialCard({
+  label,
+  value,
+  note,
+}: {
+  label: string
+  value: string
+  note: string
+}) {
+  return (
+    <div>
+      <dt>{label}</dt>
+      <dd>{value}</dd>
+      <dd className="compliance-note">{note}</dd>
+    </div>
   )
 }

@@ -10,7 +10,7 @@
 
 The single-page Figma Make prototype was converted into a small multi-page website structure with dedicated About Us, Services and Contact pages. The homepage hero was shortened, the global navigation was simplified, shared company/service/contact data was centralised, and unsupported or incomplete homepage material was removed from the published IA.
 
-The implementation follows the evidence gates in the existing LSO homepage IA: no example project records, placeholder credentials, fabricated insights, response-time promises or inactive company-profile downloads remain in the public page structure.
+The implementation follows the evidence gates in the existing LSO homepage IA: no example project records, placeholder credentials, fabricated insights, response-time promises or broken company-profile downloads remain in the public page structure.
 
 ## Repository audit findings
 
@@ -67,13 +67,13 @@ The second refinement:
 2. About LSO Group and company capability
 3. Six-service overview
 4. Confirmed audience groups
-5. Our Footprint & Credentials
+5. Compliance & Credentials
 6. One-row partner-logo carousel
 7. Request a Quote conversion block
 
 Project proof and delivery-process sections remain intentionally omitted until LSO supplies verified records and validated operational wording.
 
-The former “Where We Work” section is now **Our Footprint & Credentials**, introduced by “LSO Group at a Glance”. It presents the established year, all-nine-province coverage, owner-confirmed B-BBEE Level 1 and CIDB Grade 7 GB, followed by the four provinces where LSO has a stronger presence.
+The former “Where We Work” / “LSO Group at a Glance” section now follows the approved **Compliance & Credentials** reference layout. The left column contains the “Capability You Can Rely On” narrative and a clearly disabled company-profile download action pending the approved PDF. The right column uses a two-column, three-row credential grid for B-BBEE Level 1, CIDB Grade 7 GB, company registration number, established year, all-nine-province coverage and the four-province stronger-presence summary.
 
 The Partners section uses six clearly labelled dummy logo placeholders duplicated for a continuous one-row carousel. Animation pauses on hover and is disabled in reduced-motion mode. No organisation names or relationships are implied by the placeholders.
 
@@ -144,7 +144,7 @@ Removed from the public implementation:
 - unverified placeholder CIDB/NHBRC/credential content, replaced only where the owner supplied current values;
 - fabricated insight articles and dates;
 - unsupported response-time and operating-hours promises;
-- inactive company-profile downloads;
+- broken company-profile downloads, replaced with a clearly disabled pending-upload affordance;
 - empty top-level page destinations.
 
 The email address and physical address were corrected and confirmed by the authorised LSO owner on 1 September 2026. The phone number remains sourced from LSO's existing first-party contact page:
@@ -179,8 +179,8 @@ The authorised LSO owner confirmed the following credential values on 1 Septembe
 
 Build output at verification time:
 
-- CSS: 25.49 KB (6.34 KB gzip)
-- JavaScript: 218.37 KB (66.41 KB gzip)
+- CSS: 25.77 KB (6.45 KB gzip)
+- JavaScript: 218.85 KB (66.62 KB gzip)
 
 ## Outstanding before production launch
 
