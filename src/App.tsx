@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, CSSProperties } from 'react'
 
 /* ─── Palette (light theme, primary #0067a4) ───────────────────────── */
 const C = {
@@ -16,10 +16,10 @@ const C = {
   ruleHi:     'rgba(0,103,164,0.25)',
 }
 
-const slab: React.CSSProperties = { fontFamily: "'Roboto Slab', serif" }
+const slab: CSSProperties = { fontFamily: "'Roboto Slab', serif" }
 
 /* ─── Data ─────────────────────────────────────────────────────────── */
-const NAV = ['About', 'Services', 'Projects', 'Industries', 'Capabilities', 'Insights', 'Contact']
+const NAV = ['About', 'Services', 'Projects', 'Industries', 'Capabilities', 'Contact']
 
 const SERVICES = [
   { n:'01', title:'General Building',         desc:'Construction and building solutions delivered with attention to quality, programme and client requirements across commercial and residential environments.' },
@@ -95,30 +95,6 @@ const CREDENTIALS = [
   { label:'Insurance',            value:'Professional Cover',     note:'Public liability & works' },
 ]
 
-const INSIGHTS = [
-  {
-    img:    'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=400&fit=crop&auto=format',
-    cat:    'Construction',
-    title:  'How to Prepare for a Commercial Construction Project',
-    date:   'August 2026',
-    excerpt:'Understanding the planning, design and procurement stages before breaking ground can save significant time and cost on commercial builds.',
-  },
-  {
-    img:    'https://images.unsplash.com/photo-1608303588026-884930af2559?w=600&h=400&fit=crop&auto=format',
-    cat:    'Project Management',
-    title:  'What Is Turnkey Construction and When Should You Use It?',
-    date:   'July 2026',
-    excerpt:'Turnkey delivery places full project accountability with one partner — from concept and design through to construction and handover.',
-  },
-  {
-    img:    'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&h=400&fit=crop&auto=format',
-    cat:    'Industrial Maintenance',
-    title:  'Planning a Factory Upgrade Without Disrupting Operations',
-    date:   'June 2026',
-    excerpt:'Effective maintenance and upgrade planning requires understanding operational windows, critical systems and acceptable downtime thresholds.',
-  },
-]
-
 /* ─── Utility ──────────────────────────────────────────────────────── */
 function Eyebrow({ text }: { text: string }) {
   return (
@@ -136,7 +112,7 @@ function Btn({
     display: 'inline-flex', alignItems: 'center', gap: 8, textDecoration: 'none',
     fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase',
     fontSize: small ? 11 : 13, padding: small ? '8px 18px' : '13px 28px',
-    transition: 'all 0.2s', cursor: 'pointer', fontFamily: "'Work Sans', sans-serif",
+    transition: 'all 0.2s', cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif",
     border: '2px solid transparent',
   }
   const styles: Record<string, React.CSSProperties> = {
@@ -168,15 +144,15 @@ export default function App() {
   const navSolid = scrollY > 60
 
   return (
-    <div style={{ backgroundColor: C.ground, color: C.white, fontFamily: "'Work Sans', sans-serif", overflowX: 'hidden', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: C.ground, color: C.white, fontFamily: "'Space Grotesk', sans-serif", overflowX: 'hidden', minHeight: '100vh' }}>
 
       {/* ══════════════════════════════════ NAV */}
       <header style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
         transition: 'all 0.3s',
-        backgroundColor: navSolid ? 'rgba(255,255,255,0.97)' : 'transparent',
-        backdropFilter: navSolid ? 'blur(16px)' : 'none',
-        borderBottom: navSolid ? `1px solid ${C.rule}` : '1px solid transparent',
+        backgroundColor: navSolid ? 'rgba(255,255,255,0.96)' : 'rgba(255,255,255,0.72)',
+        backdropFilter: 'blur(14px)',
+        borderBottom: `1px solid ${navSolid ? C.rule : 'rgba(10,30,50,0.06)'}`,
         boxShadow: navSolid ? '0 1px 20px rgba(0,103,164,0.08)' : 'none',
       }}>
         <nav style={{ maxWidth: 1320, margin: '0 auto', padding: '0 32px', height: 68, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -247,26 +223,27 @@ export default function App() {
       <section ref={heroRef} id="home" style={{
         position: 'relative', minHeight: '100vh',
         display: 'flex', alignItems: 'flex-end', paddingBottom: 80,
-        backgroundImage: "url('https://images.unsplash.com/photo-1700469919563-ef267d459da5?w=1800&h=1100&fit=crop&auto=format')",
+        backgroundImage: "linear-gradient(120deg, rgba(245,248,251,0.96) 0%, rgba(245,248,251,0.88) 42%, rgba(255,255,255,0.5) 100%), url('https://images.unsplash.com/photo-1700469919563-ef267d459da5?w=1800&h=1100&fit=crop&auto=format')",
         backgroundSize: 'cover', backgroundPosition: 'center 20%',
+        borderBottom: `1px solid ${C.rule}`,
       }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(105deg, rgba(4,14,22,0.97) 35%, rgba(4,14,22,0.75) 60%, rgba(4,14,22,0.35) 100%)' }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(4,14,22,1) 0%, transparent 40%)' }} />
-        <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 4, background: `linear-gradient(180deg, ${C.hi} 0%, ${C.lo} 100%)` }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(245,248,251,0.88) 0%, rgba(245,248,251,0.36) 48%, rgba(255,255,255,0.10) 100%)' }} />
+        <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 4, background: `linear-gradient(180deg, ${C.primary} 0%, ${C.hi} 100%)` }} />
 
         <div style={{ position: 'relative', zIndex: 2, maxWidth: 1320, margin: '0 auto', padding: '0 32px', paddingTop: 140, width: '100%' }}>
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: 10, marginBottom: 28,
-            padding: '6px 16px', border: '1px solid rgba(255,255,255,0.35)', backgroundColor: 'rgba(255,255,255,0.12)',
-            color: '#fff', fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase',
+            padding: '6px 16px', border: '1px solid rgba(10,30,50,0.12)', backgroundColor: 'rgba(255,255,255,0.72)',
+            color: C.white, fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase',
+            boxShadow: '0 8px 18px rgba(10,30,50,0.04)',
           }}>
-            <span style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: '#fff' }} />
+            <span style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: C.primary }} />
             100% Black-Owned · South African Built-Environment Company · Est. 2015
           </div>
 
-          <h1 style={{ ...slab, fontSize: 'clamp(2.6rem,6.5vw,5.2rem)', fontWeight: 800, lineHeight: 1.0, marginBottom: 28, maxWidth: 780 }}>
+          <h1 style={{ ...slab, color: C.white, fontSize: 'clamp(2.6rem,6.5vw,5.2rem)', fontWeight: 800, lineHeight: 1.0, marginBottom: 28, maxWidth: 780 }}>
             Building Infrastructure.<br />
-            <span style={{ color: C.hi }}>Delivering Projects.</span><br />
+            <span style={{ color: C.primary }}>Delivering Projects.</span><br />
             Creating Long-Term Value.
           </h1>
 
@@ -469,23 +446,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════ INSIGHTS */}
-      <section id="insights" style={{ padding: '112px 0', backgroundColor: C.g3, borderTop: `1px solid ${C.g4}` }}>
-        <div style={{ maxWidth: 1320, margin: '0 auto', padding: '0 32px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 56, flexWrap: 'wrap', gap: 20 }}>
-            <div>
-              <Eyebrow text="Knowledge & Perspectives" />
-              <h2 style={{ ...slab, fontSize: 'clamp(2rem,4vw,3rem)', fontWeight: 700, lineHeight: 1.1 }}>LSO Insights</h2>
-            </div>
-            <Btn href="#insights" label="View All Insights" variant="ghost" />
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 1, backgroundColor: C.rule }} className="insights-grid">
-            {INSIGHTS.map(a => <InsightCard key={a.title} a={a} />)}
-          </div>
-        </div>
-      </section>
-
       {/* ══════════════════════════════════ FINAL CTA */}
       <section style={{
         position: 'relative', padding: '120px 32px', overflow: 'hidden',
@@ -559,7 +519,7 @@ export default function App() {
             {/* Navigation */}
             <div>
               <div style={{ fontSize: 10, fontWeight: 700, color: C.hi, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 20 }}>Company</div>
-              {['About', 'Services', 'Projects', 'Industries', 'Capabilities', 'Insights', 'Contact'].map(l => (
+              {['About', 'Services', 'Projects', 'Industries', 'Capabilities', 'Contact'].map(l => (
                 <a key={l} href={`#${l.toLowerCase()}`} style={{ display: 'block', color: C.dim, fontSize: 13, fontWeight: 300, marginBottom: 10, textDecoration: 'none', transition: 'color 0.2s' }}
                   onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = C.steel}
                   onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = C.dim}
@@ -620,7 +580,6 @@ export default function App() {
           .industries-grid { grid-template-columns: 1fr 1fr !important; }
           .projects-grid { grid-template-columns: 1fr !important; }
           .why-grid { grid-template-columns: 1fr !important; }
-          .insights-grid { grid-template-columns: 1fr !important; }
           .footer-grid { grid-template-columns: 1fr !important; }
         }
         @media (max-width: 480px) {
@@ -638,7 +597,7 @@ function NavLink({ href, label }: { href: string; label: string }) {
   const [hov, setHov] = useState(false)
   return (
     <a href={href}
-      style={{ color: hov ? C.hi : C.dim, fontSize: 12, fontWeight: 600, letterSpacing: '0.07em', textTransform: 'uppercase', textDecoration: 'none', transition: 'color 0.2s' }}
+      style={{ color: hov ? C.primary : C.steel, fontSize: 12, fontWeight: 600, letterSpacing: '0.07em', textTransform: 'uppercase', textDecoration: 'none', transition: 'color 0.2s' }}
       onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}>
       {label}
     </a>
@@ -733,29 +692,6 @@ function ProcessStep({ p, last }: { p: typeof PROCESS[0]; last: boolean }) {
   )
 }
 
-function InsightCard({ a }: { a: typeof INSIGHTS[0] }) {
-  const [hov, setHov] = useState(false)
-  return (
-    <div onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
-      style={{ backgroundColor: C.g2, cursor: 'pointer', transition: 'all 0.25s', boxShadow: hov ? '0 8px 32px rgba(0,103,164,0.10)' : '0 1px 4px rgba(0,0,0,0.05)', transform: hov ? 'translateY(-2px)' : 'none' }}>
-      <div style={{ overflow: 'hidden', aspectRatio: '16/9', backgroundColor: C.g3 }}>
-        <img src={a.img} alt={a.title}
-          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.5s', transform: hov ? 'scale(1.05)' : 'scale(1)' }} />
-      </div>
-      <div style={{ padding: '24px 24px' }}>
-        <div style={{ display: 'flex', gap: 12, marginBottom: 12, alignItems: 'center' }}>
-          <span style={{ fontSize: 10, fontWeight: 700, color: C.hi, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{a.cat}</span>
-          <span style={{ fontSize: 10, color: C.lo }}>·</span>
-          <span style={{ fontSize: 11, color: C.lo }}>{a.date}</span>
-        </div>
-        <h3 style={{ ...slab, fontSize: 15, fontWeight: 600, color: C.white, margin: '0 0 10px', lineHeight: 1.4 }}>{a.title}</h3>
-        <p style={{ color: C.dim, fontSize: 13, lineHeight: 1.7, fontWeight: 300, margin: '0 0 16px' }}>{a.excerpt}</p>
-        <span style={{ fontSize: 11, fontWeight: 700, color: hov ? C.hi : C.lo, letterSpacing: '0.08em', textTransform: 'uppercase', transition: 'color 0.2s' }}>Read Article →</span>
-      </div>
-    </div>
-  )
-}
-
 function ContactForm() {
   const [form, setForm] = useState({ name: '', company: '', email: '', phone: '', service: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
@@ -773,7 +709,7 @@ function ContactForm() {
   const inputStyle: React.CSSProperties = {
     width: '100%', backgroundColor: C.g3, border: `1px solid ${C.g4}`,
     color: C.white, padding: '11px 14px', fontSize: 14, outline: 'none',
-    fontFamily: "'Work Sans', sans-serif", transition: 'border-color 0.2s',
+    fontFamily: "'Space Grotesk', sans-serif", transition: 'border-color 0.2s',
   }
   const labelStyle: React.CSSProperties = {
     display: 'block', fontSize: 10, fontWeight: 700, color: C.hi,
@@ -835,7 +771,7 @@ function ContactForm() {
       <button type="submit" style={{
         padding: '14px 0', backgroundColor: C.primary, color: C.white,
         fontWeight: 700, fontSize: 12, letterSpacing: '0.08em', textTransform: 'uppercase',
-        border: 'none', cursor: 'pointer', fontFamily: "'Work Sans', sans-serif",
+        border: 'none', cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif",
         transition: 'background-color 0.2s',
       }}
         onMouseEnter={e => (e.currentTarget as HTMLButtonElement).style.backgroundColor = C.hi}
