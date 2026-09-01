@@ -116,9 +116,23 @@ function Btn({
     border: '2px solid transparent',
   }
   const styles: Record<string, React.CSSProperties> = {
-    solid:   { ...base, backgroundColor: hov ? C.hi : C.primary, color: C.white, borderColor: hov ? C.hi : C.primary },
-    outline: { ...base, backgroundColor: 'transparent', color: hov ? C.hi : C.steel, borderColor: hov ? C.hi : C.ruleHi },
-    ghost:   { ...base, backgroundColor: 'transparent', color: hov ? C.hi : C.dim, borderColor: 'transparent', padding: small ? '8px 0' : '13px 0' },
+    solid: {
+      ...base,
+      backgroundColor: hov ? '#005a8e' : '#0067a4',
+      color: '#ffffff',
+      borderColor: hov ? '#005a8e' : '#0067a4',
+      boxShadow: hov ? '0 10px 24px rgba(0,103,164,0.22)' : '0 8px 18px rgba(0,103,164,0.14)',
+      fontWeight: 700,
+    },
+    outline: {
+      ...base,
+      backgroundColor: 'rgba(255,255,255,0.88)',
+      color: hov ? '#005a8e' : '#0067a4',
+      borderColor: hov ? '#005a8e' : '#0067a4',
+      boxShadow: '0 6px 18px rgba(0,103,164,0.08)',
+      fontWeight: 700,
+    },
+    ghost: { ...base, backgroundColor: 'transparent', color: hov ? C.hi : C.dim, borderColor: 'transparent', padding: small ? '8px 0' : '13px 0' },
   }
   return (
     <a href={href} style={styles[variant]}
@@ -181,13 +195,22 @@ export default function App() {
           </ul>
 
           <a href="#contact" className="hidden lg:inline-flex" style={{
-            padding: '10px 22px', backgroundColor: C.primary, color: C.white,
+            padding: '10px 22px', backgroundColor: C.primary, color: '#ffffff',
             fontWeight: 700, fontSize: 12, letterSpacing: '0.07em', textTransform: 'uppercase',
-            textDecoration: 'none', transition: 'background 0.2s',
+            textDecoration: 'none', transition: 'background 0.2s, box-shadow 0.2s',
             clipPath: 'polygon(0 0,100% 0,100% 68%,88% 100%,0 100%)',
+            boxShadow: '0 8px 18px rgba(0,103,164,0.18)',
           }}
-            onMouseEnter={e => (e.currentTarget as HTMLElement).style.backgroundColor = C.hi}
-            onMouseLeave={e => (e.currentTarget as HTMLElement).style.backgroundColor = C.primary}
+            onMouseEnter={e => {
+              const target = e.currentTarget as HTMLElement
+              target.style.backgroundColor = C.hi
+              target.style.boxShadow = '0 14px 26px rgba(0,103,164,0.22)'
+            }}
+            onMouseLeave={e => {
+              const target = e.currentTarget as HTMLElement
+              target.style.backgroundColor = C.primary
+              target.style.boxShadow = '0 8px 18px rgba(0,103,164,0.18)'
+            }}
           >
             Discuss Your Project
           </a>
@@ -241,7 +264,17 @@ export default function App() {
             100% Black-Owned · South African Built-Environment Company · Est. 2015
           </div>
 
-          <h1 style={{ ...slab, color: C.white, fontSize: 'clamp(2.6rem,6.5vw,5.2rem)', fontWeight: 800, lineHeight: 1.0, marginBottom: 28, maxWidth: 780 }}>
+          <h1 style={{
+            ...slab,
+            color: '#0a1e32',
+            fontSize: 'clamp(2.6rem,6.5vw,5.2rem)',
+            fontWeight: 900,
+            lineHeight: 0.95,
+            letterSpacing: '-0.055em',
+            marginBottom: 28,
+            maxWidth: 780,
+            textShadow: '0 2px 20px rgba(10,30,50,0.06)',
+          }}>
             Building Infrastructure.<br />
             <span style={{ color: C.primary }}>Delivering Projects.</span><br />
             Creating Long-Term Value.
