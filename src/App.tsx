@@ -183,6 +183,7 @@ export default function App() {
 
   return (
     <div style={{ backgroundColor: C.ground, color: C.white, fontFamily: "'Work Sans', sans-serif", overflowX: 'hidden', minHeight: '100vh' }}>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
 
       {/* ══════════════════════════════════ NAV */}
       <header style={{
@@ -204,8 +205,8 @@ export default function App() {
               clipPath: 'polygon(0 0,100% 0,100% 68%,68% 100%,0 100%)',
             }}>LSO</div>
             <div>
-              <div style={{ ...slab, fontSize: 16, fontWeight: 700, color: C.white, lineHeight: 1.1 }}>LSO Group</div>
-              <div style={{ fontSize: 10, color: C.dim, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Built Environment</div>
+              <div style={{ ...slab, fontSize: 16, fontWeight: 700, color: navSolid ? C.white : '#ffffff', lineHeight: 1.1 }}>LSO Group</div>
+              <div style={{ fontSize: 10, color: navSolid ? C.dim : 'rgba(255,255,255,0.76)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Built Environment</div>
             </div>
           </a>
 
@@ -213,7 +214,7 @@ export default function App() {
           <ul className="hidden lg:flex" style={{ listStyle: 'none', margin: 0, padding: 0, gap: 28, alignItems: 'center' }}>
             {NAV.map(l => (
               <li key={l}>
-                <NavLink href={`#${l.toLowerCase().replace(/\s+/g, '-')}`} label={l} />
+                <NavLink href={`#${l.toLowerCase().replace(/\s+/g, '-')}`} label={l} inverted={!navSolid} />
               </li>
             ))}
           </ul>
@@ -240,8 +241,8 @@ export default function App() {
           </a>
 
           {/* Hamburger */}
-          <button className="lg:hidden" onClick={() => setMenuOpen(!menuOpen)}
-            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 8, color: C.white }}>
+          <button className="lg:hidden" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={menuOpen}
+            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 8, color: navSolid ? C.white : '#ffffff' }}>
             <div style={{ width: 22, height: 2, backgroundColor: 'currentColor', marginBottom: 5, transition: 'transform 0.2s', transform: menuOpen ? 'rotate(45deg) translateY(7px)' : '' }} />
             <div style={{ width: 22, height: 2, backgroundColor: 'currentColor', marginBottom: 5, opacity: menuOpen ? 0 : 1, transition: 'opacity 0.2s' }} />
             <div style={{ width: 22, height: 2, backgroundColor: 'currentColor', transition: 'transform 0.2s', transform: menuOpen ? 'rotate(-45deg) translateY(-7px)' : '' }} />
@@ -267,43 +268,44 @@ export default function App() {
       </header>
 
       {/* ══════════════════════════════════ HERO */}
+      <main id="main-content">
       <section ref={heroRef} id="home" style={{
         position: 'relative', minHeight: '100vh',
         display: 'flex', alignItems: 'flex-end', paddingBottom: 80,
         backgroundImage: "url('https://images.unsplash.com/photo-1700469919563-ef267d459da5?w=1800&h=1100&fit=crop&auto=format')",
         backgroundSize: 'cover', backgroundPosition: 'center 20%',
       }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(105deg, rgba(4,14,22,0.97) 35%, rgba(4,14,22,0.75) 60%, rgba(4,14,22,0.35) 100%)' }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(4,14,22,1) 0%, transparent 40%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(100deg, rgba(250,253,255,0.98) 0%, rgba(250,253,255,0.94) 43%, rgba(250,253,255,0.45) 67%, rgba(250,253,255,0.04) 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(245,248,251,0.88) 0%, transparent 42%)' }} />
         <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 4, background: `linear-gradient(180deg, ${C.hi} 0%, ${C.lo} 100%)` }} />
 
         <div style={{ position: 'relative', zIndex: 2, maxWidth: 1320, margin: '0 auto', padding: '0 32px', paddingTop: 140, width: '100%' }}>
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: 10, marginBottom: 28,
-            padding: '6px 16px', border: '1px solid rgba(255,255,255,0.35)', backgroundColor: 'rgba(255,255,255,0.12)',
-            color: '#fff', fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase',
+            padding: '7px 16px', border: `1px solid ${C.ruleHi}`, backgroundColor: 'rgba(255,255,255,0.9)',
+            color: C.hi, fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase',
           }}>
-            <span style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: '#fff' }} />
+            <span style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: C.primary }} />
             100% Black-Owned · South African Built-Environment Company · Est. 2015
           </div>
 
           <h1 style={{
             ...slab,
-            color: '#0a1e32',
+            color: C.white,
             fontSize: 'clamp(2.6rem,6.5vw,5.2rem)',
             fontWeight: 900,
             lineHeight: 0.95,
             letterSpacing: '-0.055em',
             marginBottom: 28,
             maxWidth: 780,
-            textShadow: '0 2px 20px rgba(10,30,50,0.06)',
+            textShadow: '0 1px 0 rgba(255,255,255,0.8)',
           }}>
             Building Infrastructure.<br />
             <span style={{ color: C.hi }}>Delivering Projects.</span><br />
             Creating Long-Term Value.
           </h1>
 
-          <p style={{ fontSize: 'clamp(15px,1.8vw,18px)', color: C.steel, maxWidth: 580, lineHeight: 1.7, marginBottom: 44, fontWeight: 300 }}>
+          <p style={{ fontSize: 'clamp(15px,1.8vw,18px)', color: C.steel, maxWidth: 580, lineHeight: 1.7, marginBottom: 44, fontWeight: 400 }}>
             LSO Group is a South African built-environment company delivering construction, civil works, project management, turnkey solutions and maintenance services for commercial, industrial and public-sector clients.
           </p>
 
@@ -573,6 +575,7 @@ export default function App() {
       </section>
 
       {/* ══════════════════════════════════ FOOTER */}
+      </main>
       <footer style={{ backgroundColor: C.white, borderTop: `1px solid ${C.g4}`, padding: '64px 32px 32px' }}>
         <div style={{ maxWidth: 1320, margin: '0 auto' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 48, marginBottom: 56 }} className="footer-grid">
@@ -667,11 +670,11 @@ export default function App() {
 
 /* ─── Sub-components ───────────────────────────────────────────────── */
 
-function NavLink({ href, label }: { href: string; label: string }) {
+function NavLink({ href, label, inverted = false }: { href: string; label: string; inverted?: boolean }) {
   const [hov, setHov] = useState(false)
   return (
     <a href={href}
-      style={{ color: hov ? C.hi : C.dim, fontSize: 12, fontWeight: 600, letterSpacing: '0.07em', textTransform: 'uppercase', textDecoration: 'none', transition: 'color 0.2s' }}
+      style={{ color: hov ? (inverted ? '#ffffff' : C.hi) : (inverted ? 'rgba(255,255,255,0.86)' : C.dim), fontSize: 12, fontWeight: 600, letterSpacing: '0.07em', textTransform: 'uppercase', textDecoration: 'none', transition: 'color 0.2s' }}
       onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}>
       {label}
     </a>
@@ -704,8 +707,8 @@ function IndustryCard({ ind }: { ind: typeof INDUSTRIES[0] }) {
         style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.6s', transform: hov ? 'scale(1.07)' : 'scale(1)' }} />
       <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(to top, rgba(4,14,22,0.90) 0%, rgba(4,14,22,0.25) 60%)`, transition: 'opacity 0.3s', opacity: hov ? 1 : 0.8 }} />
       <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '20px 22px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-        <span style={{ ...slab, fontSize: 15, fontWeight: 600, color: C.white }}>{ind.label}</span>
-        {hov && <span style={{ fontSize: 10, color: C.hi, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Explore →</span>}
+        <span style={{ ...slab, fontSize: 15, fontWeight: 600, color: '#ffffff', textShadow: '0 1px 3px rgba(0,0,0,0.55)' }}>{ind.label}</span>
+        {hov && <span style={{ fontSize: 10, color: '#dceeff', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Explore →</span>}
       </div>
     </div>
   )
@@ -721,12 +724,12 @@ function ProjectCard({ p, i }: { p: typeof PROJECTS[0]; i: number }) {
       <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(to top, rgba(4,14,22,0.95) 0%, rgba(4,14,22,0.2) 60%)`, opacity: hov ? 1 : 0.75, transition: 'opacity 0.3s' }} />
       <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '24px 24px' }}>
         <div style={{ display: 'flex', gap: 8, marginBottom: 10, flexWrap: 'wrap' }}>
-          <span style={{ fontSize: 10, fontWeight: 700, color: C.hi, letterSpacing: '0.1em', textTransform: 'uppercase', backgroundColor: 'rgba(0,103,164,0.20)', padding: '3px 8px', border: `1px solid ${C.ruleHi}` }}>{p.sector}</span>
+          <span style={{ fontSize: 10, fontWeight: 700, color: '#ffffff', letterSpacing: '0.1em', textTransform: 'uppercase', backgroundColor: 'rgba(0,55,88,0.76)', padding: '3px 8px', border: '1px solid rgba(255,255,255,0.42)' }}>{p.sector}</span>
         </div>
-        <h3 style={{ ...slab, fontSize: i === 0 ? 20 : 15, fontWeight: 700, color: C.white, margin: '0 0 6px' }}>{p.name}</h3>
-        <p style={{ fontSize: 11, color: C.steel, margin: '0 0 4px' }}>{p.location}</p>
-        {hov && <p style={{ fontSize: 12, color: C.dim, margin: '8px 0 0', lineHeight: 1.6, fontWeight: 300 }}>{p.desc}</p>}
-        {hov && <div style={{ marginTop: 12 }}><a href="#" style={{ fontSize: 11, fontWeight: 700, color: C.hi, letterSpacing: '0.08em', textTransform: 'uppercase', textDecoration: 'none' }}>View Project →</a></div>}
+        <h3 style={{ ...slab, fontSize: i === 0 ? 20 : 15, fontWeight: 700, color: '#ffffff', margin: '0 0 6px', textShadow: '0 1px 3px rgba(0,0,0,0.55)' }}>{p.name}</h3>
+        <p style={{ fontSize: 11, color: '#dceeff', margin: '0 0 4px' }}>{p.location}</p>
+        {hov && <p style={{ fontSize: 12, color: '#f3f8fc', margin: '8px 0 0', lineHeight: 1.6, fontWeight: 400 }}>{p.desc}</p>}
+        {hov && <div style={{ marginTop: 12 }}><a href="#projects" style={{ fontSize: 11, fontWeight: 700, color: '#ffffff', letterSpacing: '0.08em', textTransform: 'uppercase', textDecoration: 'underline', textUnderlineOffset: 4 }}>View Project →</a></div>}
       </div>
     </div>
   )

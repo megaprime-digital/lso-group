@@ -25,6 +25,28 @@
 
 html { scroll-behavior: smooth; }
 
+/* Keyboard access must be as visible as hover states. */
+:focus-visible {
+  outline: 3px solid #0067a4;
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 200;
+  top: 12px;
+  left: 12px;
+  transform: translateY(-180%);
+  padding: 10px 14px;
+  background: #ffffff;
+  color: #0a1e32;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(10, 30, 50, 0.2);
+}
+
+.skip-link:focus { transform: translateY(0); }
+
 body {
   font-family: 'Work Sans', sans-serif;
   background-color: #f5f8fb;
