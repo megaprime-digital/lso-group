@@ -5,6 +5,21 @@ export type Service = {
   description: string
 }
 
+export type Project = {
+  slug: string
+  title: string
+  location: string
+  sector: string
+  services: string[]
+  year: string
+  status: string
+  summary: string
+  scope: string
+  image: string
+  gallery: string[]
+  placeholder: true
+}
+
 export const company = {
   name: "LSO Group",
   legalName: "LSO GROUP (Pty) Ltd",
@@ -24,6 +39,7 @@ export const navigation = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about-us" },
   { label: "Services", href: "/services" },
+  { label: "Our Work", href: "/projects" },
   { label: "Contact", href: "/contact" },
 ]
 
@@ -92,4 +108,67 @@ export const partnerPlaceholders = [
   { mark: "P04", name: "Partner logo placeholder 4" },
   { mark: "P05", name: "Partner logo placeholder 5" },
   { mark: "P06", name: "Partner logo placeholder 6" },
+]
+
+export const projects: Project[] = [
+  {
+    slug: "commercial-building-example",
+    title: "Commercial Building Project",
+    location: "Gauteng — placeholder",
+    sector: "Commercial — placeholder",
+    services: ["General Building", "Project Management"],
+    year: "2026 — placeholder",
+    status: "Completed — placeholder",
+    summary:
+      "Dummy project summary showing how a selected commercial construction project will be presented.",
+    scope:
+      "Placeholder scope covering coordinated building works, site management, programme coordination and project close-out. Replace this content with an approved project record before launch.",
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&h=950&fit=crop&auto=format",
+    gallery: [
+      "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1200&h=850&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1200&h=850&fit=crop&auto=format",
+    ],
+    placeholder: true,
+  },
+  {
+    slug: "industrial-upgrade-example",
+    title: "Industrial Facility Upgrade",
+    location: "Mpumalanga — placeholder",
+    sector: "Industrial — placeholder",
+    services: ["Factory Maintenance & Upgrades", "Construction & Civil Works"],
+    year: "2025 — placeholder",
+    status: "Completed — placeholder",
+    summary:
+      "Dummy project summary demonstrating an industrial maintenance and facility-upgrade case study.",
+    scope:
+      "Placeholder scope covering maintenance works, refurbishment, civil works and coordination around an operating facility. Replace this content with approved project evidence before launch.",
+    image:
+      "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=1400&h=950&fit=crop&auto=format",
+    gallery: [
+      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1200&h=850&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1200&h=850&fit=crop&auto=format",
+    ],
+    placeholder: true,
+  },
+  {
+    slug: "public-sector-refurbishment-example",
+    title: "Public-Sector Refurbishment",
+    location: "KwaZulu-Natal — placeholder",
+    sector: "Public Sector — placeholder",
+    services: ["Turnkey Projects", "Drywall & Ceiling Installations"],
+    year: "2025 — placeholder",
+    status: "Completed — placeholder",
+    summary:
+      "Dummy project summary illustrating how a public-sector refurbishment project may be showcased.",
+    scope:
+      "Placeholder scope covering refurbishment, interior partitioning, ceiling installations and coordinated handover. Replace this content with an approved project record before launch.",
+    image:
+      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1400&h=950&fit=crop&auto=format",
+    gallery: [
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=850&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1497366412874-3415097a27e7?w=1200&h=850&fit=crop&auto=format",
+    ],
+    placeholder: true,
+  },
 ]

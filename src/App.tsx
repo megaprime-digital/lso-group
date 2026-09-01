@@ -4,7 +4,10 @@ import AboutPage from "./pages/AboutPage"
 import ContactPage from "./pages/ContactPage"
 import HomePage from "./pages/HomePage"
 import NotFoundPage from "./pages/NotFoundPage"
+import ProjectDetailPage from "./pages/ProjectDetailPage"
+import ProjectsPage from "./pages/ProjectsPage"
 import ServicesPage from "./pages/ServicesPage"
+import { projects } from "./siteData"
 
 function normalisePath(pathname: string) {
   if (pathname === "/") return pathname
@@ -35,11 +38,23 @@ export default function App() {
     case "/services":
       page = <ServicesPage />
       break
+    case "/projects":
+      page = <ProjectsPage />
+      break
     case "/contact":
       page = <ContactPage />
       break
-    default:
-      page = <NotFoundPage />
+    default: {
+      const projectSlug = currentPath.startsWith("/projects/")
+        ? currentPath.slice("/projects/".length)
+        : ""
+      const project = projects.find((item) => item.slug === projectSlug)
+      page = project ? (
+        <ProjectDetailPage project={project} />
+      ) : (
+        <NotFoundPage />
+      )
+    }
   }
 
   return <SiteLayout currentPath={currentPath}>{page}</SiteLayout>

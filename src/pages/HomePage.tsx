@@ -1,5 +1,7 @@
 import { ButtonLink, Eyebrow, PageMeta } from "../components/SiteLayout"
+import ProjectCard from "../components/ProjectCard"
 import { audiences, company, partnerPlaceholders, services } from "../siteData"
+import { projects } from "../siteData"
 
 export default function HomePage() {
   const carouselLogos = [...partnerPlaceholders, ...partnerPlaceholders]
@@ -190,6 +192,34 @@ export default function HomePage() {
               note={company.strongerPresence.join(" · ")}
             />
           </dl>
+        </div>
+      </section>
+
+      <section className="projects-section" aria-labelledby="projects-heading">
+        <div className="container">
+          <div className="section-heading-row">
+            <div className="section-intro">
+              <Eyebrow>Our Work</Eyebrow>
+              <h2 id="projects-heading">Selected Project Examples</h2>
+              <p>
+                Dummy project content for layout review. Replace every record,
+                image and outcome with approved project evidence before launch.
+              </p>
+            </div>
+            <ButtonLink href="/projects" variant="secondary">
+              View Our Work
+            </ButtonLink>
+          </div>
+
+          <div className="home-project-grid">
+            {projects.map((project, index) => (
+              <ProjectCard
+                project={project}
+                featured={index === 0}
+                key={project.slug}
+              />
+            ))}
+          </div>
         </div>
       </section>
 

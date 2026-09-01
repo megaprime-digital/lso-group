@@ -10,7 +10,7 @@
 
 The single-page Figma Make prototype was converted into a small multi-page website structure with dedicated About Us, Services and Contact pages. The homepage hero was shortened, the global navigation was simplified, shared company/service/contact data was centralised, and unsupported or incomplete homepage material was removed from the published IA.
 
-The implementation follows the evidence gates in the existing LSO homepage IA: no example project records, placeholder credentials, fabricated insights, response-time promises or broken company-profile downloads remain in the public page structure.
+The implementation follows the evidence gates in the existing LSO homepage IA. The newly requested project showcase uses conspicuous dummy-data labels on the index and detail pages so that examples cannot be mistaken for verified company work. Placeholder credentials, fabricated insights, response-time promises and broken company-profile downloads remain excluded.
 
 ## Repository audit findings
 
@@ -34,9 +34,9 @@ The initial plan added the three routes, refactored shared UI, shortened the her
 
 The first refinement compared the proposed implementation with the canonical homepage information architecture and project sitemap. It changed the plan by:
 
-- removing Projects, Industries, Capabilities and Insights from global navigation until their publication gates are met;
+- initially withholding Projects, Industries, Capabilities and Insights from global navigation until their publication gates were met; Projects was subsequently added at the owner's direction using explicitly labelled dummy data;
 - removing invented project proof, unverified delivery-process wording, placeholder credentials and fabricated editorial content from the homepage;
-- defining a compact public IA of `Home | About Us | Services | Contact` with a persistent `Request a Quote` CTA;
+- defining a compact public IA, later expanded to `Home | About Us | Services | Our Work | Contact`, with a persistent `Request a Quote` CTA;
 - limiting page copy to verified company identity, six supported services, confirmed audiences and confirmed operating coverage;
 - replacing the fake form-success interaction with an email-client handoff and direct contact fallbacks.
 
@@ -58,8 +58,9 @@ The second refinement:
 1. Home — `/`
 2. About Us — `/about-us`
 3. Services — `/services`
-4. Contact — `/contact`
-5. Primary CTA — `/contact#quote`
+4. Our Work — `/projects`
+5. Contact — `/contact`
+6. Primary CTA — `/contact#quote`
 
 ### Homepage
 
@@ -68,14 +69,29 @@ The second refinement:
 3. Six-service overview
 4. Confirmed audience groups
 5. Compliance & Credentials
-6. One-row partner-logo carousel
-7. Request a Quote conversion block
+6. Selected project examples
+7. One-row partner-logo carousel
+8. Request a Quote conversion block
 
-Project proof and delivery-process sections remain intentionally omitted until LSO supplies verified records and validated operational wording.
+The project section appears immediately before Partners. It presents three selected dummy examples and links to the Our Work index and project-detail templates. Every project card and page carries a visible `Demo project · replace before launch` warning; these records are layout content, not claims about completed LSO work.
 
 The former “Where We Work” / “LSO Group at a Glance” section now follows the approved **Compliance & Credentials** reference layout. The left column contains the “Capability You Can Rely On” narrative and a clearly disabled company-profile download action pending the approved PDF. The right column uses a two-column, three-row credential grid for B-BBEE Level 1, CIDB Grade 7 GB, company registration number, established year, all-nine-province coverage and the four-province stronger-presence summary.
 
 The Partners section uses six clearly labelled dummy logo placeholders duplicated for a continuous one-row carousel. Animation pauses on hover and is disabled in reduced-motion mode. No organisation names or relationships are implied by the placeholders.
+
+### Our Work
+
+1. Our Work page hero and dummy-content notice
+2. Selected project grid
+3. Individual project-detail routes
+4. Project overview, placeholder facts and image gallery
+5. Quote CTA
+
+The three dummy project routes are:
+
+- `/projects/commercial-building-example`
+- `/projects/industrial-upgrade-example`
+- `/projects/public-sector-refurbishment-example`
 
 ### About Us
 
@@ -123,10 +139,11 @@ The former multi-line hero and long supporting paragraph were replaced with:
 
 ## Technical implementation
 
-- Added a lightweight path resolver for `/`, `/about-us`, `/services` and `/contact`.
+- Added a lightweight path resolver for `/`, `/about-us`, `/services`, `/projects`, `/projects/:slug` and `/contact`.
 - Added a not-found page for unknown paths.
 - Extracted shared layout, header, footer, page hero, metadata and button components.
 - Centralised company facts, navigation, audiences and service content in `src/siteData.ts`.
+- Centralised dummy project records in `src/siteData.ts` and added reusable project-card and project-detail components.
 - Moved the enquiry interaction into a reusable accessible form component.
 - Added page-specific document titles and meta descriptions.
 - Updated the HTML language to `en-ZA` and added default metadata/theme colour.
@@ -140,7 +157,7 @@ Removed from the public implementation:
 
 - the unapproved Black-owned statement;
 - derived experience counters;
-- invented project case studies and locations;
+- invented project case studies presented as verified work; the later owner-requested dummy records are visibly labelled throughout;
 - unverified placeholder CIDB/NHBRC/credential content, replaced only where the owner supplied current values;
 - fabricated insight articles and dates;
 - unsupported response-time and operating-hours promises;
@@ -171,6 +188,8 @@ The authorised LSO owner confirmed the following credential values on 1 Septembe
 | Production preview `/` | PASS — HTTP 200 |
 | Production preview `/about-us` | PASS — HTTP 200 |
 | Production preview `/services` | PASS — HTTP 200 |
+| Production preview `/projects` | PASS — HTTP 200 |
+| Production preview three project-detail paths | PASS — HTTP 200 |
 | Production preview `/contact` | PASS — HTTP 200 |
 | Production preview unknown path | PASS — application serves the not-found route |
 | Unsupported-claim source scan | PASS for public source files |
@@ -179,15 +198,15 @@ The authorised LSO owner confirmed the following credential values on 1 Septembe
 
 Build output at verification time:
 
-- CSS: 25.77 KB (6.45 KB gzip)
-- JavaScript: 218.85 KB (66.62 KB gzip)
+- CSS: 29.88 KB (7.13 KB gzip)
+- JavaScript: 228.36 KB (68.38 KB gzip)
 
 ## Outstanding before production launch
 
 ### Business/content decisions
 
 1. Confirm the published phone number with the LSO owner.
-2. Supply verified project records, imagery, outcomes and publication consent before restoring a Projects section/page.
+2. Replace all three dummy project records and stock images with verified project names, locations, dates, services, scopes, outcomes, approved imagery and publication consent before launch.
 3. Validate the real project delivery process before publishing delivery-process wording.
 4. Archive current supporting evidence for the published CIDB Grade 7 GB and B-BBEE Level 1, and supply evidence before adding any other accreditation, certification, insurance or compliance claim.
 5. Supply and approve the company profile PDF before enabling a download CTA.

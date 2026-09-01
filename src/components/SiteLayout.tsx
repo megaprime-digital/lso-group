@@ -112,7 +112,10 @@ export function SiteHeader({ currentPath }: { currentPath: string }) {
 
         <div className="site-header__links">
           {navigation.map((item) => {
-            const active = item.href === currentPath
+            const active =
+              item.href === "/projects"
+                ? currentPath.startsWith("/projects")
+                : item.href === currentPath
             return (
               <a
                 key={item.href}
@@ -156,7 +159,15 @@ export function SiteHeader({ currentPath }: { currentPath: string }) {
               <a
                 key={item.href}
                 href={item.href}
-                aria-current={item.href === currentPath ? "page" : undefined}
+                aria-current={
+                  item.href === "/projects"
+                    ? currentPath.startsWith("/projects")
+                      ? "page"
+                      : undefined
+                    : item.href === currentPath
+                      ? "page"
+                      : undefined
+                }
               >
                 {item.label}
               </a>
