@@ -93,6 +93,10 @@ Navigation:
 * Home
 * About
 * Services
+* Projects
+* Industries
+* Capabilities
+* Insights
 * Contact
 
 Primary CTA:
@@ -434,7 +438,43 @@ Instead, use a client/project trust section or reserve the component for future 
 
 ---
 
-# 12. Strong final CTA
+# 12. Insights / knowledge section
+
+Introduce an editorial section.
+
+Heading:
+
+**LSO Insights**
+
+Show 3 content cards.
+
+Potential content categories:
+
+* Construction
+* Project Management
+* Industrial Maintenance
+* Infrastructure
+* Built Environment
+* Company News
+* Project Updates
+
+Example articles:
+
+"How to Prepare for a Commercial Construction Project"
+
+"What Is Turnkey Construction?"
+
+"Planning a Factory Upgrade Without Disrupting Operations"
+
+This section should support the future SEO and content marketing strategy.
+
+CTA:
+
+**View All Insights**
+
+---
+
+# 13. Strong final CTA
 
 End the homepage with a high-impact conversion section.
 
@@ -473,6 +513,7 @@ Short company description.
 * Projects
 * Industries
 * Capabilities
+* Insights
 * Contact
 
 ### Services
@@ -604,6 +645,8 @@ For example:
 /industries/public-sector
 
 /projects
+
+/insights
 
 Each page should eventually have unique, useful content.
 
