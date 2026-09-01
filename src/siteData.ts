@@ -15,6 +15,8 @@ export const company = {
   phoneHref: "+27717740674",
   website: "lsoprojects.co.za",
   addressLines: ["1 Protea Pl", "Sandown, Sandton, 2191", "South Africa"],
+  bbbeeLevel: "Level 1",
+  cidbGrade: "Grade 7 GB",
   strongerPresence: ["Gauteng", "KwaZulu-Natal", "Mpumalanga", "Free State"],
 }
 
@@ -81,4 +83,13 @@ export const audiences = [
   "Private companies and property developers",
   "Industrial and factory clients",
   "Homeowners and residential clients",
+]
+
+export const partnerPlaceholders = [
+  { mark: "P01", name: "Partner logo placeholder 1" },
+  { mark: "P02", name: "Partner logo placeholder 2" },
+  { mark: "P03", name: "Partner logo placeholder 3" },
+  { mark: "P04", name: "Partner logo placeholder 4" },
+  { mark: "P05", name: "Partner logo placeholder 5" },
+  { mark: "P06", name: "Partner logo placeholder 6" },
 ]

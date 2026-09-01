@@ -64,13 +64,18 @@ The second refinement:
 ### Homepage
 
 1. Short hero and primary conversion
-2. Confirmed audience groups
+2. About LSO Group and company capability
 3. Six-service overview
-4. About LSO Group and company capability
-5. Confirmed South African coverage
-6. Request a Quote conversion block
+4. Confirmed audience groups
+5. Our Footprint & Credentials
+6. One-row partner-logo carousel
+7. Request a Quote conversion block
 
 Project proof and delivery-process sections remain intentionally omitted until LSO supplies verified records and validated operational wording.
+
+The former “Where We Work” section is now **Our Footprint & Credentials**, introduced by “LSO Group at a Glance”. It presents the established year, all-nine-province coverage, owner-confirmed B-BBEE Level 1 and CIDB Grade 7 GB, followed by the four provinces where LSO has a stronger presence.
+
+The Partners section uses six clearly labelled dummy logo placeholders duplicated for a continuous one-row carousel. Animation pauses on hover and is disabled in reduced-motion mode. No organisation names or relationships are implied by the placeholders.
 
 ### About Us
 
@@ -136,7 +141,7 @@ Removed from the public implementation:
 - the unapproved Black-owned statement;
 - derived experience counters;
 - invented project case studies and locations;
-- placeholder CIDB/NHBRC/credential content;
+- unverified placeholder CIDB/NHBRC/credential content, replaced only where the owner supplied current values;
 - fabricated insight articles and dates;
 - unsupported response-time and operating-hours promises;
 - inactive company-profile downloads;
@@ -149,6 +154,11 @@ The email address and physical address were corrected and confirmed by the autho
 - `1 Protea Pl, Sandown, Sandton, 2191`
 
 The phone number should still receive final owner confirmation before production launch.
+
+The authorised LSO owner confirmed the following credential values on 1 September 2026:
+
+- B-BBEE status: `Level 1`
+- CIDB grading: `Grade 7 GB`
 
 ## Verification completed
 
@@ -169,8 +179,8 @@ The phone number should still receive final owner confirmation before production
 
 Build output at verification time:
 
-- CSS: 22.45 KB (5.77 KB gzip)
-- JavaScript: 216.72 KB (66.01 KB gzip)
+- CSS: 25.49 KB (6.34 KB gzip)
+- JavaScript: 218.37 KB (66.41 KB gzip)
 
 ## Outstanding before production launch
 
@@ -179,9 +189,10 @@ Build output at verification time:
 1. Confirm the published phone number with the LSO owner.
 2. Supply verified project records, imagery, outcomes and publication consent before restoring a Projects section/page.
 3. Validate the real project delivery process before publishing delivery-process wording.
-4. Supply evidence for any CIDB, accreditation, certification, transformation, insurance or compliance claim.
+4. Archive current supporting evidence for the published CIDB Grade 7 GB and B-BBEE Level 1, and supply evidence before adding any other accreditation, certification, insurance or compliance claim.
 5. Supply and approve the company profile PDF before enabling a download CTA.
 6. Replace stock photography with approved LSO project/team photography where available.
+7. Replace all dummy partner-logo placeholders with official logo assets and internally confirm each relationship and label before launch.
 
 ### Contact, privacy and operations
 

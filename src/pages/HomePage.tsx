@@ -1,7 +1,9 @@
 import { ButtonLink, Eyebrow, PageMeta } from "../components/SiteLayout"
-import { audiences, company, services } from "../siteData"
+import { audiences, company, partnerPlaceholders, services } from "../siteData"
 
 export default function HomePage() {
+  const carouselLogos = [...partnerPlaceholders, ...partnerPlaceholders]
+
   return (
     <>
       <PageMeta
@@ -27,21 +29,48 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="audience-strip" aria-labelledby="audience-heading">
-        <div className="container">
-          <div className="section-intro section-intro--compact">
-            <Eyebrow>Who We Serve</Eyebrow>
-            <h2 id="audience-heading">
-              Built-environment support for a wide range of clients
-            </h2>
+      <section className="section" id="about" aria-labelledby="about-heading">
+        <div className="container split-layout">
+          <div className="image-frame">
+            <img
+              alt="Construction team coordinating work on site"
+              src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1000&h=820&fit=crop&auto=format"
+            />
+            <div className="image-frame__fact">
+              <strong>{company.established}</strong>
+              <span>Established</span>
+            </div>
           </div>
-          <div className="audience-grid">
-            {audiences.map((audience, index) => (
-              <article key={audience}>
-                <span>0{index + 1}</span>
-                <h3>{audience}</h3>
-              </article>
-            ))}
+
+          <div className="section-copy">
+            <Eyebrow>About LSO Group</Eyebrow>
+            <h2 id="about-heading">
+              A construction partner built around delivery
+            </h2>
+            <p>
+              LSO Group is a South African construction and built-environment
+              company established in 2015. We provide construction, civil works,
+              project management and maintenance services to commercial,
+              industrial and public-sector clients across South Africa.
+            </p>
+            <p>
+              Our work brings building, project coordination, specialised
+              interiors and maintenance capability together within one
+              organisation.
+            </p>
+            <dl className="fact-list">
+              <div>
+                <dt>Registered entity</dt>
+                <dd>{company.legalName}</dd>
+              </div>
+              <div>
+                <dt>Enterprise number</dt>
+                <dd>{company.enterpriseNumber}</dd>
+              </div>
+            </dl>
+            <ButtonLink href="/about-us" variant="secondary">
+              Learn More About LSO
+            </ButtonLink>
           </div>
         </div>
       </section>
@@ -83,70 +112,99 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section" id="about" aria-labelledby="about-heading">
-        <div className="container split-layout">
-          <div className="image-frame">
-            <img
-              alt="Construction team coordinating work on site"
-              src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1000&h=820&fit=crop&auto=format"
-            />
-            <div className="image-frame__fact">
-              <strong>{company.established}</strong>
-              <span>Established</span>
-            </div>
-          </div>
-
-          <div className="section-copy">
-            <Eyebrow>About LSO Group & Company Capability</Eyebrow>
-            <h2 id="about-heading">
-              A construction partner built around delivery
+      <section className="audience-strip" aria-labelledby="audience-heading">
+        <div className="container">
+          <div className="section-intro section-intro--compact">
+            <Eyebrow>Who We Serve</Eyebrow>
+            <h2 id="audience-heading">
+              Built-environment support for a wide range of clients
             </h2>
-            <p>
-              LSO Group is a South African construction and built-environment
-              company established in 2015. We provide construction, civil works,
-              project management and maintenance services to commercial,
-              industrial and public-sector clients across South Africa.
-            </p>
-            <p>
-              Our work brings building, project coordination, specialised
-              interiors and maintenance capability together within one
-              organisation.
-            </p>
-            <dl className="fact-list">
-              <div>
-                <dt>Registered entity</dt>
-                <dd>{company.legalName}</dd>
-              </div>
-              <div>
-                <dt>Enterprise number</dt>
-                <dd>{company.enterpriseNumber}</dd>
-              </div>
-            </dl>
-            <ButtonLink href="/about-us" variant="secondary">
-              Learn More About LSO
-            </ButtonLink>
+          </div>
+          <div className="audience-grid">
+            {audiences.map((audience, index) => (
+              <article key={audience}>
+                <span>0{index + 1}</span>
+                <h3>{audience}</h3>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="coverage-section" aria-labelledby="coverage-heading">
-        <div className="container coverage-grid">
-          <div>
-            <Eyebrow light>Where We Work</Eyebrow>
-            <h2 id="coverage-heading">Operating across South Africa</h2>
+      <section
+        className="credentials-section"
+        aria-labelledby="credentials-heading"
+      >
+        <div className="container">
+          <div className="credentials-heading">
+            <div>
+              <Eyebrow light>LSO Group at a Glance</Eyebrow>
+              <h2 id="credentials-heading">Our Footprint & Credentials</h2>
+            </div>
             <p>
-              LSO Group works across all South African provinces, with a
-              stronger presence in Gauteng, KwaZulu-Natal, Mpumalanga and the
-              Free State.
+              Established business credentials and operating coverage across
+              South Africa.
             </p>
           </div>
-          <div
-            className="province-list"
-            aria-label="Regions with a stronger LSO Group presence"
-          >
-            {company.strongerPresence.map((province) => (
-              <span key={province}>{province}</span>
-            ))}
+
+          <dl className="credential-stats">
+            <div>
+              <dt>Established</dt>
+              <dd>{company.established}</dd>
+            </div>
+            <div>
+              <dt>National coverage</dt>
+              <dd>All 9 provinces</dd>
+            </div>
+            <div>
+              <dt>B-BBEE status</dt>
+              <dd>{company.bbbeeLevel}</dd>
+            </div>
+            <div>
+              <dt>CIDB grading</dt>
+              <dd>{company.cidbGrade}</dd>
+            </div>
+          </dl>
+
+          <div className="presence-row">
+            <p>Stronger presence</p>
+            <div>
+              {company.strongerPresence.map((province) => (
+                <span key={province}>{province}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="partners-section" aria-labelledby="partners-heading">
+        <div className="container partners-heading">
+          <div>
+            <Eyebrow>Partners</Eyebrow>
+            <h2 id="partners-heading">Organisations We Work With</h2>
+          </div>
+          <p>Placeholder logos for layout review. Replace before launch.</p>
+        </div>
+
+        <div
+          className="partner-carousel"
+          aria-label="Partner logo placeholders"
+        >
+          <div className="partner-track" role="list">
+            {carouselLogos.map((partner, index) => {
+              const duplicate = index >= partnerPlaceholders.length
+              return (
+                <div
+                  className="partner-logo"
+                  key={`${partner.mark}-${index}`}
+                  role={duplicate ? undefined : "listitem"}
+                  aria-hidden={duplicate ? true : undefined}
+                >
+                  <span>{partner.mark}</span>
+                  <strong>{partner.name}</strong>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
