@@ -1116,7 +1116,7 @@ p {
 .partner-track {
   width: max-content;
   display: flex;
-  animation: partner-scroll 28s linear infinite;
+  animation: partner-scroll 56s linear infinite;
 }
 
 .partner-carousel:hover .partner-track {
@@ -1128,32 +1128,16 @@ p {
   min-height: 124px;
   display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: center;
   padding: 26px;
   border-right: 1px solid var(--line);
   background: #fff;
-  color: #8295a6;
 }
 
-.partner-logo > span {
-  width: 54px;
-  height: 54px;
-  display: grid;
-  place-items: center;
-  flex: 0 0 auto;
-  border: 1px solid #c8d5df;
-  background: var(--ground);
-  font-family: var(--display);
-  font-size: 0.72rem;
-  font-weight: 700;
-}
-
-.partner-logo strong {
-  max-width: 125px;
-  font-size: 0.7rem;
-  letter-spacing: 0.04em;
-  line-height: 1.4;
-  text-transform: uppercase;
+.partner-logo img {
+  width: 100%;
+  max-height: 72px;
+  object-fit: contain;
 }
 
 @keyframes partner-scroll {

@@ -1,10 +1,10 @@
 import { ButtonLink, Eyebrow, PageMeta } from "../components/SiteLayout"
 import ProjectCard from "../components/ProjectCard"
-import { audiences, company, partnerPlaceholders, services } from "../siteData"
+import { audiences, company, partnerLogos, services } from "../siteData"
 import { projects } from "../siteData"
 
 export default function HomePage() {
-  const carouselLogos = [...partnerPlaceholders, ...partnerPlaceholders]
+  const carouselLogos = [...partnerLogos, ...partnerLogos]
 
   return (
     <>
@@ -227,27 +227,22 @@ export default function HomePage() {
         <div className="container partners-heading">
           <div>
             <Eyebrow>Partners</Eyebrow>
-            <h2 id="partners-heading">Organisations We Work With</h2>
+            <h2 id="partners-heading">Our Partners</h2>
           </div>
-          <p>Placeholder logos for layout review. Replace before launch.</p>
         </div>
 
-        <div
-          className="partner-carousel"
-          aria-label="Partner logo placeholders"
-        >
+        <div className="partner-carousel" aria-label="Partner logos">
           <div className="partner-track" role="list">
             {carouselLogos.map((partner, index) => {
-              const duplicate = index >= partnerPlaceholders.length
+              const duplicate = index >= partnerLogos.length
               return (
                 <div
                   className="partner-logo"
-                  key={`${partner.mark}-${index}`}
+                  key={`${partner.name}-${index}`}
                   role={duplicate ? undefined : "listitem"}
                   aria-hidden={duplicate ? true : undefined}
                 >
-                  <span>{partner.mark}</span>
-                  <strong>{partner.name}</strong>
+                  <img src={partner.image} alt={`${partner.name} logo`} />
                 </div>
               )
             })}
