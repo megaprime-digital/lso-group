@@ -1,6 +1,5 @@
 import { ButtonLink, Eyebrow, PageMeta } from "../components/SiteLayout"
 import ProjectImageGallery from "../components/ProjectImageGallery"
-import { ButtonLink, Eyebrow, PageMeta } from "../components/SiteLayout"
 import type { Project } from "../siteData"
 
 export default function ProjectDetailPage({ project }: { project: Project }) {
