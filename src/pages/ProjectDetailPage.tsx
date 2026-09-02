@@ -1,4 +1,5 @@
-import { ButtonLink, Eyebrow, PageMeta } from "../components/SiteLayout"
+import ProjectImageGallery from "../components/ProjectImageGallery"
+import { ButtonLink, Eyebrow, PageMeta } from "../components/SiteLayout
 import type { Project } from "../siteData"
 
 export default function ProjectDetailPage({ project }: { project: Project }) {
@@ -77,17 +78,12 @@ export default function ProjectDetailPage({ project }: { project: Project }) {
         <div className="container">
           <div className="section-intro">
             <Eyebrow>Project Gallery</Eyebrow>
-            <h2 id="gallery-heading">Placeholder imagery</h2>
+            <h2 id="gallery-heading">Related project imagery</h2>
+            <p>
+              Select an image to browse the full gallery for this project.
+            </p>
           </div>
-          <div className="project-gallery__grid">
-            {project.gallery.map((image, index) => (
-              <img
-                src={image}
-                alt={`Placeholder project gallery image ${index + 1}`}
-                key={image}
-              />
-            ))}
-          </div>
+          <ProjectImageGallery project={project} display="grid" />
         </div>
       </section>
 

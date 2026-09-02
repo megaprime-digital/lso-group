@@ -17,8 +17,14 @@ export type Project = {
   summary: string
   scope: string
   image: string
-  gallery: string[]
+  gallery: ProjectImage[]
   placeholder: true
+}
+
+export type ProjectImage = {
+  src: string
+  alt: string
+  caption: string
 }
 
 export const company = {
@@ -142,8 +148,16 @@ export const projects: Project[] = [
     image:
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&h=950&fit=crop&auto=format",
     gallery: [
-      "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1200&h=850&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1200&h=850&fit=crop&auto=format",
+      {
+        src: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1200&h=850&fit=crop&auto=format",
+        alt: "Placeholder commercial building exterior",
+        caption: "Exterior construction placeholder",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1200&h=850&fit=crop&auto=format",
+        alt: "Placeholder commercial office interior",
+        caption: "Interior fit-out placeholder",
+      },
     ],
     placeholder: true,
   },
@@ -162,8 +176,16 @@ export const projects: Project[] = [
     image:
       "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=1400&h=950&fit=crop&auto=format",
     gallery: [
-      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1200&h=850&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1200&h=850&fit=crop&auto=format",
+      {
+        src: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1200&h=850&fit=crop&auto=format",
+        alt: "Placeholder industrial facility",
+        caption: "Facility upgrade placeholder",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1200&h=850&fit=crop&auto=format",
+        alt: "Placeholder industrial engineering work",
+        caption: "Maintenance work placeholder",
+      },
     ],
     placeholder: true,
   },
@@ -182,8 +204,16 @@ export const projects: Project[] = [
     image:
       "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1400&h=950&fit=crop&auto=format",
     gallery: [
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=850&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1497366412874-3415097a27e7?w=1200&h=850&fit=crop&auto=format",
+      {
+        src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=850&fit=crop&auto=format",
+        alt: "Placeholder public-sector office space",
+        caption: "Refurbishment placeholder",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1497366412874-3415097a27e7?w=1200&h=850&fit=crop&auto=format",
+        alt: "Placeholder finished interior space",
+        caption: "Interior installation placeholder",
+      },
     ],
     placeholder: true,
   },

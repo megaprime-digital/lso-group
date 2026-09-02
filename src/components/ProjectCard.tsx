@@ -1,3 +1,6 @@
+import ProjectImageGallery, {
+  getProjectImageCount,
+} from "./ProjectImageGallery"
 import type { Project } from "../siteData"
 
 export default function ProjectCard({
@@ -11,7 +14,7 @@ export default function ProjectCard({
     <article
       className={`project-card${featured ? " project-card--featured" : ""}`}
     >
-      <img src={project.image} alt="Placeholder construction project imagery" />
+      <ProjectImageGallery project={project} display="cover" />
       <div className="project-card__overlay" />
       <div className="project-card__content">
         <span className="placeholder-label">
@@ -19,6 +22,9 @@ export default function ProjectCard({
         </span>
         <h3>{project.title}</h3>
         <p>{project.location}</p>
+        <p className="project-card__image-count">
+          {getProjectImageCount(project)} related images
+        </p>
         <div className="project-card__services">
           {project.services.map((service) => (
             <span key={service}>{service}</span>
