@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "LSO Flaticon";
+  src: url("@flaticon/flaticon-uicons/css/uicons-regular-straight-2I3O25UC.woff2")
+    format("woff2");
+  font-display: swap;
+}
+
+.fi-rs-building::before,
+.fi-rs-road::before,
+.fi-rs-blueprint::before,
+.fi-rs-clipboard-list-check::before,
+.fi-rs-layers::before,
+.fi-rs-wrench-alt::before {
+  font-family: "LSO Flaticon";
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  line-height: 1;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fi-rs-building::before { content: "\\f302"; }
+.fi-rs-road::before { content: "\\fb63"; }
+.fi-rs-blueprint::before { content: "\\f268"; }
+.fi-rs-clipboard-list-check::before { content: "\\f43d"; }
+.fi-rs-layers::before { content: "\\f882"; }
+.fi-rs-wrench-alt::before { content: "\\ff23"; }

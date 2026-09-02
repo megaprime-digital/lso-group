@@ -102,7 +102,12 @@ export default function HomePage() {
           <div className="service-grid">
             {services.map((service) => (
               <article className="service-card" key={service.title}>
-                <span>{service.number}</span>
+                <div className="service-card__meta">
+                  <span className="service-card__number">{service.number}</span>
+                  <span className="service-card__icon" aria-hidden="true">
+                    <i className={"fi-rs-" + service.icon} />
+                  </span>
+                </div>
                 <h3>{service.title}</h3>
                 <p>{service.shortDescription}</p>
                 <a href="/services">

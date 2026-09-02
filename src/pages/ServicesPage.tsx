@@ -65,7 +65,12 @@ export default function ServicesPage() {
               id={serviceIds[index]}
               key={service.title}
             >
-              <div className="service-detail__number">{service.number}</div>
+              <div className="service-detail__aside">
+                <div className="service-detail__number">{service.number}</div>
+                <span className="service-detail__icon" aria-hidden="true">
+                  <i className={"fi-rs-" + service.icon} />
+                </span>
+              </div>
               <div>
                 <h2>{service.title}</h2>
                 <p>{service.description}</p>
