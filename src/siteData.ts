@@ -47,7 +47,7 @@ export const navigation = [
 export const services: Service[] = [
   {
     number: "01",
-    icon: "building",
+    icon: "flaticon-engineer",
     title: "General Building",
     shortDescription:
       "Building works shaped around the requirements of each project.",
@@ -56,7 +56,7 @@ export const services: Service[] = [
   },
   {
     number: "02",
-    icon: "road",
+    icon: "flaticon-engineering",
     title: "Construction & Civil Works",
     shortDescription:
       "Coordinated construction and civil works for built-environment projects.",
@@ -65,7 +65,7 @@ export const services: Service[] = [
   },
   {
     number: "03",
-    icon: "blueprint",
+    icon: "flaticon-crane",
     title: "Turnkey Projects",
     shortDescription:
       "Integrated project delivery from planning through completion.",
@@ -74,7 +74,7 @@ export const services: Service[] = [
   },
   {
     number: "04",
-    icon: "clipboard-list-check",
+    icon: "flaticon-conveyor",
     title: "Project Management",
     shortDescription:
       "Professional coordination across programme, quality, cost and communication.",
@@ -83,7 +83,7 @@ export const services: Service[] = [
   },
   {
     number: "05",
-    icon: "layers",
+    icon: "flaticon-sketch",
     title: "Drywall & Ceiling Installations",
     shortDescription:
       "Interior partition and ceiling installations for new and existing spaces.",
@@ -92,7 +92,7 @@ export const services: Service[] = [
   },
   {
     number: "06",
-    icon: "wrench-alt",
+    icon: "flaticon-skyline",
     title: "Factory Maintenance & Upgrades",
     shortDescription:
       "Maintenance and upgrade work for industrial and factory environments.",

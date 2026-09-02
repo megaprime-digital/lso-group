@@ -68,7 +68,7 @@ export default function ServicesPage() {
               <div className="service-detail__aside">
                 <div className="service-detail__number">{service.number}</div>
                 <span className="service-detail__icon" aria-hidden="true">
-                  <i className={"fi-rs-" + service.icon} />
+                  <i className={service.icon} />
                 </span>
               </div>
               <div>

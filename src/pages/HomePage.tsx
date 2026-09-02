@@ -105,7 +105,7 @@ export default function HomePage() {
                 <div className="service-card__meta">
                   <span className="service-card__number">{service.number}</span>
                   <span className="service-card__icon" aria-hidden="true">
-                    <i className={"fi-rs-" + service.icon} />
+                    <i className={service.icon} />
                   </span>
                 </div>
                 <h3>{service.title}</h3>
