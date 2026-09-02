@@ -21,9 +21,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.fi-rs-building::before { content: "\\f302"; }
-.fi-rs-road::before { content: "\\fb63"; }
-.fi-rs-blueprint::before { content: "\\f268"; }
-.fi-rs-clipboard-list-check::before { content: "\\f43d"; }
-.fi-rs-layers::before { content: "\\f882"; }
-.fi-rs-wrench-alt::before { content: "\\ff23"; }
+.fi-rs-building::before { content: "\f302"; }
+.fi-rs-road::before { content: "\fb63"; }
+.fi-rs-blueprint::before { content: "\f268"; }
+.fi-rs-clipboard-list-check::before { content: "\f43d"; }
+.fi-rs-layers::before { content: "\f882"; }
+.fi-rs-wrench-alt::before { content: "\ff23"; }

@@ -545,7 +545,7 @@ p {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: auto;
+  margin-bottom: 24px;
 }
 
 .service-card__number {
@@ -557,18 +557,16 @@ p {
 
 .service-card__icon,
 .service-detail__icon {
-  width: 46px;
-  height: 46px;
+  width: 65px;
+  height: 65px;
   display: grid;
   place-items: center;
-  border: 1px solid var(--primary-light);
-  background: var(--tint);
   color: var(--primary);
-  font-size: 1.35rem;
+  font-size: 3rem;
 }
 
 .service-card h3 {
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   color: var(--ink);
   font-size: 1.35rem;
 }
