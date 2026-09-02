@@ -17,11 +17,13 @@ export default function ProjectCard({
       <ProjectImageGallery project={project} display="cover" />
       <div className="project-card__overlay" />
       <div className="project-card__content">
-        <span className="placeholder-label">
-          Demo project · replace before launch
-        </span>
+        {project.placeholder && (
+          <span className="placeholder-label">
+            Demo project · replace before launch
+          </span>
+        )}
         <h3>{project.title}</h3>
-        <p>{project.location}</p>
+        <p>{project.category}</p>
         <p className="project-card__image-count">
           {getProjectImageCount(project)} related images
         </p>
@@ -31,7 +33,7 @@ export default function ProjectCard({
           ))}
         </div>
         <a href={`/projects/${project.slug}`}>
-          View project example <span aria-hidden="true">→</span>
+          View project gallery <span aria-hidden="true">→</span>
         </a>
       </div>
     </article>

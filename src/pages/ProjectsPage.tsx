@@ -12,39 +12,24 @@ export default function ProjectsPage() {
     <>
       <PageMeta
         title="Our Work | LSO Group Projects"
-        description="Explore selected LSO Group project examples across commercial, industrial and public-sector environments."
+        description="Explore selected LSO Group project galleries across modular construction, residential renovation and industrial facility work."
       />
 
       <PageHero
         eyebrow="Our Work"
         title="Selected Projects"
-        intro="A focused project portfolio will show the environments, services and scopes LSO Group has delivered."
-        image="https://images.unsplash.com/photo-1541976590-713941681591?w=1800&h=900&fit=crop&auto=format"
+        intro="Browse a focused selection of LSO Group project galleries. Select an image to view related work from the same project."
+        image="https://raw.githubusercontent.com/megaprime-digital/LSO-Projects/main/images/projects/2.jpeg"
       />
-
-      <section
-        className="project-placeholder-notice"
-        aria-label="Project content status"
-      >
-        <div className="container">
-          <strong>Demo content</strong>
-          <p>
-            The projects below use dummy names, images, locations, dates and
-            descriptions for layout review. They are not claims about completed
-            LSO Group work and must be replaced before launch.
-          </p>
-        </div>
-      </section>
 
       <section className="section" aria-labelledby="project-list-heading">
         <div className="container">
           <div className="section-intro">
             <Eyebrow>Project Portfolio</Eyebrow>
-            <h2 id="project-list-heading">Selected project examples</h2>
+            <h2 id="project-list-heading">Selected project galleries</h2>
             <p>
-              Each record demonstrates the information and imagery that will be
-              used once verified project content and publication approval are
-              available.
+              Each gallery groups related project photography together, making
+              it easy to explore the work in context.
             </p>
           </div>
 

@@ -205,10 +205,10 @@ export default function HomePage() {
           <div className="section-heading-row">
             <div className="section-intro">
               <Eyebrow>Our Work</Eyebrow>
-              <h2 id="projects-heading">Selected Project Examples</h2>
+              <h2 id="projects-heading">Selected Project Galleries</h2>
               <p>
-                Dummy project content for layout review. Replace every record,
-                image and outcome with approved project evidence before launch.
+                Explore three selected LSO Group project collections. Open an
+                image to view the related work from the same project.
               </p>
             </div>
             <ButtonLink href="/projects" variant="secondary">

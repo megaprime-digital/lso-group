@@ -9,16 +9,15 @@ export type Service = {
 export type Project = {
   slug: string
   title: string
+  category: string
   location: string
   sector: string
   services: string[]
-  year: string
-  status: string
   summary: string
   scope: string
   image: string
   gallery: ProjectImage[]
-  placeholder: true
+  placeholder: boolean
 }
 
 export type ProjectImage = {
@@ -134,87 +133,136 @@ export const partnerLogos = [
 
 export const projects: Project[] = [
   {
-    slug: "commercial-building-example",
-    title: "Commercial Building Project",
-    location: "Gauteng — placeholder",
-    sector: "Commercial — placeholder",
-    services: ["General Building", "Project Management"],
-    year: "2026 — placeholder",
-    status: "Completed — placeholder",
+    slug: "modular-facility-construction",
+    title: "Modular Facility Construction",
+    category: "Industrial & Commercial",
+    location: "South Africa",
+    sector: "Industrial & Commercial",
+    services: ["General Building", "Turnkey Projects"],
     summary:
-      "Dummy project summary showing how a selected commercial construction project will be presented.",
+      "A selected photographic record of a modular site-facility construction project.",
     scope:
-      "Placeholder scope covering coordinated building works, site management, programme coordination and project close-out. Replace this content with an approved project record before launch.",
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&h=950&fit=crop&auto=format",
+      "This gallery shows the facility build and site-progress stages from LSO Group's archived project photography.",
+    image: legacyProjectImage("2.jpeg"),
     gallery: [
       {
-        src: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1200&h=850&fit=crop&auto=format",
-        alt: "Placeholder commercial building exterior",
-        caption: "Exterior construction placeholder",
+        src: legacyProjectImage("1.jpeg"),
+        alt: "Modular site facility construction in progress",
+        caption: "Site facility construction",
       },
       {
-        src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1200&h=850&fit=crop&auto=format",
-        alt: "Placeholder commercial office interior",
-        caption: "Interior fit-out placeholder",
+        src: legacyProjectImage("3.jpeg"),
+        alt: "Completed exterior of modular site facility",
+        caption: "Facility exterior",
+      },
+      {
+        src: legacyProjectImage("4.jpeg"),
+        alt: "Modular site facility during construction",
+        caption: "Construction progress",
+      },
+      {
+        src: legacyProjectImage("5.jpeg"),
+        alt: "Modular site facility exterior work",
+        caption: "Exterior works",
       },
     ],
-    placeholder: true,
+    placeholder: false,
   },
   {
-    slug: "industrial-upgrade-example",
-    title: "Industrial Facility Upgrade",
-    location: "Mpumalanga — placeholder",
-    sector: "Industrial — placeholder",
-    services: ["Factory Maintenance & Upgrades", "Construction & Civil Works"],
-    year: "2025 — placeholder",
-    status: "Completed — placeholder",
+    slug: "residential-renovation",
+    title: "Residential Renovation",
+    category: "Residential",
+    location: "South Africa",
+    sector: "Residential",
+    services: ["General Building", "Drywall & Ceiling Installations"],
     summary:
-      "Dummy project summary demonstrating an industrial maintenance and facility-upgrade case study.",
+      "A selected photographic record of a residential renovation and extension project.",
     scope:
-      "Placeholder scope covering maintenance works, refurbishment, civil works and coordination around an operating facility. Replace this content with approved project evidence before launch.",
-    image:
-      "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=1400&h=950&fit=crop&auto=format",
+      "This gallery shows demolition, construction and interior work captured across a residential renovation project.",
+    image: legacyProjectImage("30.jpeg"),
     gallery: [
       {
-        src: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1200&h=850&fit=crop&auto=format",
-        alt: "Placeholder industrial facility",
-        caption: "Facility upgrade placeholder",
+        src: legacyProjectImage("31.jpeg"),
+        alt: "Residential renovation in progress",
+        caption: "Renovation progress",
       },
       {
-        src: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1200&h=850&fit=crop&auto=format",
-        alt: "Placeholder industrial engineering work",
-        caption: "Maintenance work placeholder",
+        src: legacyProjectImage("32.jpeg"),
+        alt: "Residential extension demolition work",
+        caption: "Structural work",
+      },
+      {
+        src: legacyProjectImage("33.jpeg"),
+        alt: "Residential renovation construction team",
+        caption: "Construction stage",
+      },
+      {
+        src: legacyProjectImage("34.jpeg"),
+        alt: "Residential interior work in progress",
+        caption: "Interior works",
+      },
+      {
+        src: legacyProjectImage("35.jpeg"),
+        alt: "Residential renovation window installation",
+        caption: "Building enclosure",
+      },
+      {
+        src: legacyProjectImage("36.jpeg"),
+        alt: "Residential renovation exterior finish",
+        caption: "Exterior finish",
       },
     ],
-    placeholder: true,
+    placeholder: false,
   },
   {
-    slug: "public-sector-refurbishment-example",
-    title: "Public-Sector Refurbishment",
-    location: "KwaZulu-Natal — placeholder",
-    sector: "Public Sector — placeholder",
-    services: ["Turnkey Projects", "Drywall & Ceiling Installations"],
-    year: "2025 — placeholder",
-    status: "Completed — placeholder",
+    slug: "industrial-facility-upgrades",
+    title: "Industrial Facility Upgrades",
+    category: "Industrial",
+    location: "South Africa",
+    sector: "Industrial",
+    services: ["Construction & Civil Works", "Factory Maintenance & Upgrades"],
     summary:
-      "Dummy project summary illustrating how a public-sector refurbishment project may be showcased.",
+      "A selected photographic record of industrial drainage, maintenance and upgrade work.",
     scope:
-      "Placeholder scope covering refurbishment, interior partitioning, ceiling installations and coordinated handover. Replace this content with an approved project record before launch.",
-    image:
-      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1400&h=950&fit=crop&auto=format",
+      "This gallery shows industrial site works, drainage upgrades and maintenance activity from LSO Group's project archive.",
+    image: legacyProjectImage("40.jpeg"),
     gallery: [
       {
-        src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=850&fit=crop&auto=format",
-        alt: "Placeholder public-sector office space",
-        caption: "Refurbishment placeholder",
+        src: legacyProjectImage("41.jpeg"),
+        alt: "Industrial drainage installation",
+        caption: "Drainage installation",
       },
       {
-        src: "https://images.unsplash.com/photo-1497366412874-3415097a27e7?w=1200&h=850&fit=crop&auto=format",
-        alt: "Placeholder finished interior space",
-        caption: "Interior installation placeholder",
+        src: legacyProjectImage("42.jpeg"),
+        alt: "Industrial floor trench work",
+        caption: "Floor works",
+      },
+      {
+        src: legacyProjectImage("43.jpeg"),
+        alt: "Completed industrial drainage channel",
+        caption: "Industrial upgrade",
+      },
+      {
+        src: legacyProjectImage("44.jpeg"),
+        alt: "Industrial crane lifting operation",
+        caption: "Site operation",
+      },
+      {
+        src: legacyProjectImage("45.jpeg"),
+        alt: "Industrial maintenance work at processing facility",
+        caption: "Maintenance works",
+      },
+      {
+        src: legacyProjectImage("46.jpeg"),
+        alt: "Industrial excavation and civil works",
+        caption: "Civil works",
+      },
+      {
+        src: legacyProjectImage("47.jpeg"),
+        alt: "Industrial infrastructure upgrade",
+        caption: "Infrastructure upgrade",
       },
     ],
-    placeholder: true,
+    placeholder: false,
   },
 ]

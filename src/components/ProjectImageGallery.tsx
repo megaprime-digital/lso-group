@@ -8,7 +8,7 @@ function getProjectImages(project: Project) {
   return [
     {
       src: project.image,
-      alt: `Placeholder cover image for ${project.title}`,
+      alt: `${project.title} cover image`,
       caption: "Project overview image",
     },
     ...project.gallery,
