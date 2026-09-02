@@ -19,7 +19,7 @@ export default function ProjectsPage() {
         eyebrow="Our Work"
         title="Selected Projects"
         intro="Browse a focused selection of LSO Group project galleries. Select an image to view related work from the same project."
-        image="https://raw.githubusercontent.com/megaprime-digital/LSO-Projects/main/images/projects/2.jpeg"
+        image={projects[0].image}
       />
 
       <section className="section" aria-labelledby="project-list-heading">

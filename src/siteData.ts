@@ -131,8 +131,24 @@ export const partnerLogos = [
   { name: "Robex S.A.", image: "data:image/jpeg;base64,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" },
 ]
 
-const legacyProjectImage = (filename: string) =>
-  `https://raw.githubusercontent.com/megaprime-digital/LSO-Projects/main/images/projects/${filename}`
+const projectImageSources = Array.from(
+  { length: 58 },
+  (_, index) => `/project-images/project-${String(index + 1).padStart(3, "0")}.jpeg`,
+)
+
+const legacyProjectImage = (filename: string) => {
+  const imageNumber = Number.parseInt(filename, 10)
+  const sourceIndex = Number.isNaN(imageNumber) ? 0 : imageNumber - 1
+
+  return projectImageSources[sourceIndex] ?? projectImageSources[0]
+}
+
+const projectGallery = (start: number, end: number, label: string) =>
+  projectImageSources.slice(start - 1, end).map((src, index) => ({
+    src,
+    alt: `LSO Group ${label.toLowerCase()} image ${start + index}`,
+    caption: `${label} ${index + 1}`,
+  }))
 
 export const projects: Project[] = [
   {
@@ -265,6 +281,55 @@ export const projects: Project[] = [
         alt: "Industrial infrastructure upgrade",
         caption: "Infrastructure upgrade",
       },
+    ],
+    placeholder: false,
+  },
+  {
+    slug: "brickwork-and-external-works",
+    title: "Brickwork & External Works",
+    category: "External Works",
+    location: "South Africa",
+    sector: "Industrial & Commercial",
+    services: ["General Building", "Construction & Civil Works"],
+    summary:
+      "Brickwork, paving and external construction works delivered on site.",
+    scope:
+      "A grouped view of boundary walls, paving and external construction activities.",
+    image: legacyProjectImage("2.jpeg"),
+    gallery: projectGallery(1, 6, "External works"),
+    placeholder: false,
+  },
+  {
+    slug: "factory-drainage-and-floor-works",
+    title: "Factory Drainage & Floor Works",
+    category: "Factory Upgrades",
+    location: "South Africa",
+    sector: "Industrial",
+    services: ["Factory Maintenance & Upgrades", "Construction & Civil Works"],
+    summary:
+      "Drainage channels, floor preparation and practical factory upgrades.",
+    scope:
+      "Factory improvement work covering drainage, floor channels and internal operational areas.",
+    image: legacyProjectImage("11.jpeg"),
+    gallery: projectGallery(7, 16, "Factory works"),
+    placeholder: false,
+  },
+  {
+    slug: "interiors-and-fit-out",
+    title: "Interiors & Fit-Out",
+    category: "Interior Works",
+    location: "South Africa",
+    sector: "Residential & Commercial",
+    services: ["Drywall & Ceiling Installations", "General Building"],
+    summary:
+      "Interior partitions, ceilings, kitchens and finished living spaces.",
+    scope:
+      "Interior works grouped across partitioning, ceilings, kitchens, bathrooms and final finishes.",
+    image: legacyProjectImage("18.jpeg"),
+    gallery: [
+      ...projectGallery(17, 20, "Interior works"),
+      ...projectGallery(34, 41, "Fit-out works"),
+      ...projectGallery(55, 57, "Finished interiors"),
     ],
     placeholder: false,
   },
