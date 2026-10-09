@@ -1,6 +1,5 @@
 # LSO Group static React/Vite site on Apache shared hosting.
-# Allow real files and directories to be served normally; route app URLs to the SPA shell.
-Options -MultiViews
+# Serve existing files and directories normally; route app URLs to the SPA shell.
 RewriteEngine On
 
 RewriteCond %{REQUEST_FILENAME} -f [OR]
