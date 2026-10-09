@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       dry_run:
@@ -52,7 +55,7 @@ jobs:
     needs: build
     # Main-branch pushes deploy automatically only after ENABLE_FTP_DEPLOY=true is set.
     # Manual runs can be used for an initial dry-run or a deliberate live deployment.
-    if: github.event_name == 'workflow_dispatch' || vars.ENABLE_FTP_DEPLOY == 'true'
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && vars.ENABLE_FTP_DEPLOY == 'true')
     environment: production
     steps:
       - name: Download production build
