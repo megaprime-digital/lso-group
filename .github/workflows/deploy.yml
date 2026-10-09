@@ -1,0 +1,94 @@
+name: Build and Deploy LSO Group
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Preview the FTP sync without changing the live site"
+        required: true
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lso-group-production-deploy
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build website
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build production site
+        run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: lso-group-dist
+          path: dist/
+          if-no-files-found: error
+          retention-days: 7
+
+  deploy:
+    name: Deploy to Axxess shared hosting
+    runs-on: ubuntu-latest
+    needs: build
+    # Main-branch pushes deploy automatically only after ENABLE_FTP_DEPLOY=true is set.
+    # Manual runs can be used for an initial dry-run or a deliberate live deployment.
+    if: github.event_name == 'workflow_dispatch' || vars.ENABLE_FTP_DEPLOY == 'true'
+    environment: production
+    steps:
+      - name: Download production build
+        uses: actions/download-artifact@v4
+        with:
+          name: lso-group-dist
+          path: dist/
+
+      - name: Validate FTP configuration
+        shell: bash
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_SERVER_DIR: ${{ secrets.FTP_SERVER_DIR }}
+        run: |
+          missing=()
+          [[ -n "$FTP_SERVER" ]] || missing+=("FTP_SERVER")
+          [[ -n "$FTP_USERNAME" ]] || missing+=("FTP_USERNAME")
+          [[ -n "$FTP_PASSWORD" ]] || missing+=("FTP_PASSWORD")
+          [[ -n "$FTP_SERVER_DIR" ]] || missing+=("FTP_SERVER_DIR")
+          if (( ${#missing[@]} > 0 )); then
+            printf 'Missing GitHub Actions secrets: %s\n' "${missing[*]}"
+            exit 1
+          fi
+
+      - name: Deploy files using FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.7.1
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          local-dir: ./dist/
+          # Keep this false. Use a dedicated website directory and back it up before first live sync.
+          dangerous-clean-slate: false
+          # A manual run defaults to dry-run. Set dry_run=false only when ready to publish.
+          dry-run: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
