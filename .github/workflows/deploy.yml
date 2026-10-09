@@ -83,7 +83,7 @@ jobs:
           fi
 
       - name: Deploy files using FTPS
-        uses: SamKirkland/FTP-Deploy-Action@v4.7.1
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
