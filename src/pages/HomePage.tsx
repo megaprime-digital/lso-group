@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { ButtonLink, Eyebrow, PageMeta } from "../components/SiteLayout"
 import ProjectCard from "../components/ProjectCard"
 import { audiences, company, partnerLogos, services } from "../siteData"
@@ -5,6 +6,7 @@ import { projects } from "../siteData"
 
 export default function HomePage() {
   const carouselLogos = [...partnerLogos, ...partnerLogos]
+  const [partnersPaused, setPartnersPaused] = useState(false)
 
   return (
     <>
@@ -110,7 +112,10 @@ export default function HomePage() {
                 </div>
                 <h3>{service.title}</h3>
                 <p>{service.shortDescription}</p>
-                <a href="/services">
+                <a
+                  href="/services"
+                  aria-label={`Explore service: ${service.title}`}
+                >
                   Explore service <span aria-hidden="true">→</span>
                 </a>
               </article>
@@ -234,10 +239,29 @@ export default function HomePage() {
             <Eyebrow>Partners</Eyebrow>
             <h2 id="partners-heading">Our Partners</h2>
           </div>
+          <button
+            type="button"
+            className="partner-motion-toggle button-link button-link--secondary"
+            aria-pressed={partnersPaused}
+            aria-controls="partner-track"
+            onClick={() => setPartnersPaused((paused) => !paused)}
+          >
+            Pause partner animation
+          </button>
         </div>
 
-        <div className="partner-carousel" aria-label="Partner logos">
-          <div className="partner-track" role="list">
+        <div
+          className="partner-carousel"
+          role="region"
+          aria-label="Scrollable partner logos"
+          tabIndex={0}
+        >
+          <div
+            id="partner-track"
+            className={`partner-track${partnersPaused ? " partner-track--paused" : ""}`}
+            role="list"
+            aria-label="Partner logos"
+          >
             {carouselLogos.map((partner, index) => {
               const duplicate = index >= partnerLogos.length
               return (
@@ -247,7 +271,10 @@ export default function HomePage() {
                   role={duplicate ? undefined : "listitem"}
                   aria-hidden={duplicate ? true : undefined}
                 >
-                  <img src={partner.image} alt={`${partner.name} logo`} />
+                  <img
+                    src={partner.image}
+                    alt={duplicate ? "" : `${partner.name} logo`}
+                  />
                 </div>
               )
             })}

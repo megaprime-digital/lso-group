@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from "react"
+import { useId, useState, type FormEvent } from "react"
 import { company, services } from "../siteData"
 
 type QuoteFormState = {
@@ -21,6 +21,9 @@ const initialForm: QuoteFormState = {
 
 export default function QuoteForm() {
   const [form, setForm] = useState<QuoteFormState>(initialForm)
+  const [emailPrepared, setEmailPrepared] = useState(false)
+  const headingId = useId()
+  const instructionsId = useId()
 
   const update = (field: keyof QuoteFormState, value: string) => {
     setForm((current) => ({ ...current, [field]: value }))
@@ -42,15 +45,24 @@ export default function QuoteForm() {
     ].join("\n")
 
     window.location.href = `mailto:${company.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    setEmailPrepared(true)
   }
 
   return (
-    <form id="quote" className="quote-form" onSubmit={submit}>
+    <form
+      id="quote"
+      className="quote-form"
+      onSubmit={submit}
+      aria-labelledby={headingId}
+      aria-describedby={instructionsId}
+    >
       <div className="form-heading">
         <p className="eyebrow">Project enquiry</p>
-        <h2>Tell us what you need</h2>
-        <p>
+        <h2 id={headingId}>Tell us what you need</h2>
+        <p id={instructionsId}>
           Your details will be prepared as an email for you to review and send.
+          {" "}Fields marked * are required. An email app is needed to send your
+          enquiry.
         </p>
       </div>
 
@@ -127,7 +139,9 @@ export default function QuoteForm() {
         <span aria-hidden="true">→</span>
       </button>
 
-      <p className="form-fallback">
+      <p className="form-fallback" role="status" aria-atomic="true">
+        {emailPrepared &&
+          "Your email enquiry is prepared. Review and send it in your email app. "}
         If your email app does not open, email{" "}
         <a href={`mailto:${company.email}`}>{company.email}</a> directly.
       </p>
