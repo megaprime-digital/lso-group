@@ -16,6 +16,7 @@ export type Project = {
   summary: string
   scope: string
   image: string
+  imageAlt: string
   gallery: ProjectImage[]
   placeholder: boolean
 }
@@ -136,6 +137,50 @@ const projectImageSources = Array.from(
   (_, index) => `/project-images/project-${String(index + 1).padStart(3, "0")}.jpeg`,
 )
 
+const projectImageDescriptions: Record<number, string> = {
+  1: "Workers breaking up concrete beside an outdoor walkway",
+  2: "New red-brick retaining wall beside a paved walkway and steps",
+  3: "Red-brick retaining wall and paved path beside a multistorey building",
+  4: "Brick paving and retaining walls under construction beside a building",
+  5: "Two workers laying bricks on an outdoor construction site",
+  6: "Red-brick retaining wall bordering a paved outdoor area",
+  7: "Excavated factory floor beside a brick partition wall",
+  8: "Workers levelling an excavated floor inside a factory",
+  9: "Workers preparing a floor trench inside a factory building",
+  10: "Finished concrete paving beside a brick wall with an LSO Group sign",
+  11: "Excavated drainage trench beside factory equipment and a yellow safety rail",
+  12: "Open floor trench alongside factory equipment and yellow safety rails",
+  13: "Metal drainage grating installed beside factory equipment",
+  14: "Open drainage channel in a concrete factory floor",
+  15: "Materials stacked along a narrow paved passage between brick walls",
+  16: "Completed factory drainage grating beside an LSO Group sign",
+  17: "Unfinished interior with grey walls, white doors and ceiling panels",
+  18: "Interior partition walls and doorway beside wood-finish kitchen cabinetry",
+  19: "Partially finished room with wood-finish kitchen cabinetry",
+  20: "Scaffolding and building materials inside a room under renovation",
+  30: "Metal factory door beside exposed brickwork and an LSO Group sign",
+  31: "Workers on scaffolding renovating the exterior of a house",
+  32: "Workers and scaffolding outside a house during renovation",
+  33: "Large sliding glass doors being installed at the back of a house",
+  34: "Workers finishing interior walls beside sliding glass doors",
+  35: "Grey interior partition walls and a doorway under construction",
+  36: "Drainage grating installed along a factory walkway",
+  37: "Blue industrial structure outside a white factory building",
+  38: "Bathroom vanity with a black basin and chrome tap",
+  39: "Double-basin bathroom vanity beside a bathtub and shower fitting",
+  40: "Kitchen with white upper cabinets and wood-finish lower cabinets",
+  41: "Wood-finish kitchen cabinetry beside a tiled splashback and cooker",
+  42: "Renovated house exterior with large windows and sliding glass doors",
+  43: "Workers on tall scaffolding outside an industrial building",
+  44: "Red scaffolding erected inside an industrial building",
+  45: "Completed drainage grating along an indoor factory passage",
+  46: "Excavator and worker digging beside a pile of broken concrete",
+  47: "Open drainage trench beside an industrial building",
+  55: "Finished kitchen with white and wood-finish cabinets and a tiled splashback",
+  56: "Built-in wood-finish wardrobe with drawers and handles",
+  57: "Built-in grey wardrobe with drawers in a finished room",
+}
+
 const legacyProjectImage = (filename: string) => {
   const imageNumber = Number.parseInt(filename, 10)
   const sourceIndex = Number.isNaN(imageNumber) ? 0 : imageNumber - 1
@@ -146,7 +191,7 @@ const legacyProjectImage = (filename: string) => {
 const projectGallery = (start: number, end: number, label: string) =>
   projectImageSources.slice(start - 1, end).map((src, index) => ({
     src,
-    alt: `LSO Group ${label.toLowerCase()} image ${start + index}`,
+    alt: projectImageDescriptions[start + index],
     caption: `${label} ${index + 1}`,
   }))
 
@@ -163,25 +208,26 @@ export const projects: Project[] = [
     scope:
       "This gallery shows the facility build and site-progress stages from LSO Group's archived project photography.",
     image: legacyProjectImage("2.jpeg"),
+    imageAlt: projectImageDescriptions[2],
     gallery: [
       {
         src: legacyProjectImage("1.jpeg"),
-        alt: "Modular site facility construction in progress",
+        alt: projectImageDescriptions[1],
         caption: "Site facility construction",
       },
       {
         src: legacyProjectImage("3.jpeg"),
-        alt: "Completed exterior of modular site facility",
+        alt: projectImageDescriptions[3],
         caption: "Facility exterior",
       },
       {
         src: legacyProjectImage("4.jpeg"),
-        alt: "Modular site facility during construction",
+        alt: projectImageDescriptions[4],
         caption: "Construction progress",
       },
       {
         src: legacyProjectImage("5.jpeg"),
-        alt: "Modular site facility exterior work",
+        alt: projectImageDescriptions[5],
         caption: "Exterior works",
       },
     ],
@@ -199,35 +245,36 @@ export const projects: Project[] = [
     scope:
       "This gallery shows demolition, construction and interior work captured across a residential renovation project.",
     image: legacyProjectImage("30.jpeg"),
+    imageAlt: projectImageDescriptions[30],
     gallery: [
       {
         src: legacyProjectImage("31.jpeg"),
-        alt: "Residential renovation in progress",
+        alt: projectImageDescriptions[31],
         caption: "Renovation progress",
       },
       {
         src: legacyProjectImage("32.jpeg"),
-        alt: "Residential extension demolition work",
+        alt: projectImageDescriptions[32],
         caption: "Structural work",
       },
       {
         src: legacyProjectImage("33.jpeg"),
-        alt: "Residential renovation construction team",
+        alt: projectImageDescriptions[33],
         caption: "Construction stage",
       },
       {
         src: legacyProjectImage("34.jpeg"),
-        alt: "Residential interior work in progress",
+        alt: projectImageDescriptions[34],
         caption: "Interior works",
       },
       {
         src: legacyProjectImage("35.jpeg"),
-        alt: "Residential renovation window installation",
+        alt: projectImageDescriptions[35],
         caption: "Building enclosure",
       },
       {
         src: legacyProjectImage("36.jpeg"),
-        alt: "Residential renovation exterior finish",
+        alt: projectImageDescriptions[36],
         caption: "Exterior finish",
       },
     ],
@@ -245,40 +292,41 @@ export const projects: Project[] = [
     scope:
       "This gallery shows industrial site works, drainage upgrades and maintenance activity from LSO Group's project archive.",
     image: legacyProjectImage("40.jpeg"),
+    imageAlt: projectImageDescriptions[40],
     gallery: [
       {
         src: legacyProjectImage("41.jpeg"),
-        alt: "Industrial drainage installation",
+        alt: projectImageDescriptions[41],
         caption: "Drainage installation",
       },
       {
         src: legacyProjectImage("42.jpeg"),
-        alt: "Industrial floor trench work",
+        alt: projectImageDescriptions[42],
         caption: "Floor works",
       },
       {
         src: legacyProjectImage("43.jpeg"),
-        alt: "Completed industrial drainage channel",
+        alt: projectImageDescriptions[43],
         caption: "Industrial upgrade",
       },
       {
         src: legacyProjectImage("44.jpeg"),
-        alt: "Industrial crane lifting operation",
+        alt: projectImageDescriptions[44],
         caption: "Site operation",
       },
       {
         src: legacyProjectImage("45.jpeg"),
-        alt: "Industrial maintenance work at processing facility",
+        alt: projectImageDescriptions[45],
         caption: "Maintenance works",
       },
       {
         src: legacyProjectImage("46.jpeg"),
-        alt: "Industrial excavation and civil works",
+        alt: projectImageDescriptions[46],
         caption: "Civil works",
       },
       {
         src: legacyProjectImage("47.jpeg"),
-        alt: "Industrial infrastructure upgrade",
+        alt: projectImageDescriptions[47],
         caption: "Infrastructure upgrade",
       },
     ],
@@ -296,6 +344,7 @@ export const projects: Project[] = [
     scope:
       "A grouped view of boundary walls, paving and external construction activities.",
     image: legacyProjectImage("2.jpeg"),
+    imageAlt: projectImageDescriptions[2],
     gallery: projectGallery(1, 6, "External works"),
     placeholder: false,
   },
@@ -311,6 +360,7 @@ export const projects: Project[] = [
     scope:
       "Factory improvement work covering drainage, floor channels and internal operational areas.",
     image: legacyProjectImage("11.jpeg"),
+    imageAlt: projectImageDescriptions[11],
     gallery: projectGallery(7, 16, "Factory works"),
     placeholder: false,
   },
@@ -326,6 +376,7 @@ export const projects: Project[] = [
     scope:
       "Interior works grouped across partitioning, ceilings, kitchens, bathrooms and final finishes.",
     image: legacyProjectImage("18.jpeg"),
+    imageAlt: projectImageDescriptions[18],
     gallery: [
       ...projectGallery(17, 20, "Interior works"),
       ...projectGallery(34, 41, "Fit-out works"),

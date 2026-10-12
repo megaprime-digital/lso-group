@@ -32,7 +32,10 @@ export default function ProjectCard({
             <span key={service}>{service}</span>
           ))}
         </div>
-        <a href={`/projects/${project.slug}`}>
+        <a
+          href={`/projects/${project.slug}`}
+          aria-label={`View project gallery: ${project.title}`}
+        >
           View project gallery <span aria-hidden="true">→</span>
         </a>
       </div>

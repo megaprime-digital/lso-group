@@ -74,7 +74,10 @@ export default function ServicesPage() {
               <div>
                 <h2>{service.title}</h2>
                 <p>{service.description}</p>
-                <a href={`/contact#quote`}>
+                <a
+                  href="/contact#quote"
+                  aria-label={`Discuss this service: ${service.title}`}
+                >
                   Discuss this service <span aria-hidden="true">→</span>
                 </a>
               </div>
@@ -90,7 +93,7 @@ export default function ServicesPage() {
         <div className="container split-layout">
           <div className="image-frame image-frame--wide">
             <img
-              alt="Construction planning materials and project drawings"
+              alt="Designer drawing architectural plans beside a ruler"
               src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1100&h=850&fit=crop&auto=format"
             />
           </div>
